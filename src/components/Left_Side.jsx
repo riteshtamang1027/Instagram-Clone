@@ -67,7 +67,7 @@ const Links1 = [
   },
   {
     icon: <Bell />,
-    title: "Home",
+    title: "Notefication",
   },
   {
     icon: <SquarePlus />,
@@ -78,6 +78,8 @@ const Links1 = [
     title: "Profile",
   },
 ];
+
+
 const Links2 = [
   {
     icon: <AtSign />,
