@@ -1,8 +1,9 @@
 import React from "react";
+import Myimage from '../../public/rock.jpg'
 
 export default function Right_Side() {
   return (
-    <div className="bg-gray-50 px-4">
+    <div className=" px-4">
       <div className="flex items-center justify-between font-semibold opacity-70">
         <p>Suggested for you</p>
         <p className="text-blue-500 cursor-pointer">See All</p>
@@ -22,7 +23,6 @@ export default function Right_Side() {
                 alt="Image"
               />
 
-
               <div>
                 <p className="font-semibold text-lg">{item.Username}</p>
                 <p className="opacity-60">{item.Followedby}</p>
@@ -40,8 +40,7 @@ export default function Right_Side() {
 const People = [
 
   {
-    Profile:
-      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+    Profile: Myimage,
     Username: "Ritesh",
     Followedby: "Tamang",
   },

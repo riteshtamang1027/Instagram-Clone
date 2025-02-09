@@ -14,7 +14,7 @@ import React from "react";
 
 export default function Left_Side() {
   return (
-    <div className="bg-gray-50 shadow-xl px-4 ">
+    <div className="bg-gray-50 shadow-xl px-2 ">
       <p>Instagram</p>
       <div className="flex flex-col justify-between h-[96vh]">
         <div>

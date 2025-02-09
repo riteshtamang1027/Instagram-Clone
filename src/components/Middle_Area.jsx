@@ -3,12 +3,12 @@ import News_Feed_Section from "./News_Feed_Section";
 
 export default function Middle_Area() {
   return (
-    <div className="">
+   <div className="px-2">
       <div className="flex mt-4 gap-x-4 overflow-x-scroll">
         {Stories.map((item, index) => (
           <div key={index} className=" flex flex-col items-center   ">
             <img
-              className="rounded-full object-cover  h-16 w-16 border-2 border-orange-700 p-0.5"
+              className="rounded-full object-cover h-16 w-16 border-2 border-orange-700 p-0.5"
               src={item.profiltpicture}
               alt="Image"
             />
@@ -24,6 +24,7 @@ export default function Middle_Area() {
 }
 
 const Stories = [
+  
   {
     profiltpicture:
       "https://images.unsplash.com/photo-1423479185712-25d4a4fe1006?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
