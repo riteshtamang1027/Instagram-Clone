@@ -8,7 +8,7 @@ import {
 
 export default function News_Feed_Section() {
   return (
-    <div div className="mt-8 lg:px-20 px-12 space-y-8">
+    <div div className="mt-8 lg:px-20 px-4 space-y-8">
       {/* Single Post */}
       {
         Post.map((eachpost,index)=>(
