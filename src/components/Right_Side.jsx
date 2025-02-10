@@ -3,13 +3,13 @@ import Myimage from '../../public/rock.jpg'
 
 export default function Right_Side() {
   return (
-    <div className=" px-4">
-      <div className="flex items-center justify-between font-semibold opacity-70">
+    <div className=" px-4 pt-10">
+      <div className="flex items-center justify-between font-semibold opacity-70 mb-8 px-2">
         <p>Suggested for you</p>
         <p className="text-blue-500 cursor-pointer">See All</p>
       </div>
 
-      <div className="space-y-4 mt-8 mr-4 ">
+      <div className="space-y-6 px-2 ">
         {People.map((item, index) => (
           <div key={index} className="flex items-center justify-between">
 

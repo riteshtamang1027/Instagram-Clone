@@ -3,7 +3,7 @@ import News_Feed_Section from "./News_Feed_Section";
 
 export default function Middle_Area() {
   return (
-   <div className="px-2">
+   <div className="px-4  -mt-4 md:pt-4">
       <div className="flex mt-4 gap-x-4 overflow-x-scroll">
         {Stories.map((item, index) => (
           <div key={index} className=" flex flex-col items-center   ">
