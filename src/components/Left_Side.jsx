@@ -76,7 +76,7 @@ const Links1 = [
   {
     icon: <Bell />,
     title: "Notefication",
-    path: "/notifications",
+    path: "/notification",
   },
   {
     icon: <SquarePlus />,

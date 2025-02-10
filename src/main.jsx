@@ -10,6 +10,7 @@ import Reels from "./pages/Reels.jsx";
 import Explore from "./pages/Explore.jsx";
 import Creat from "./pages/Creat.jsx";
 import Messages from "./pages/Messages.jsx";
+import Notification from "./pages/Notification.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -18,7 +19,7 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/profile" element={<Profile/> } />
-      <Route path="/notifications" element={<Notification/>} />
+      <Route path="/notification" element={<Notification/>} />
       <Route path="/messages" element={<Messages/>} />
       <Route path="/reels" element={<Reels/>} />
       <Route path="/explore" element={<Explore/>} />
