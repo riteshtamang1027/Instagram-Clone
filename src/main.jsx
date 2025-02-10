@@ -25,7 +25,6 @@ createRoot(document.getElementById("root")).render(
       <Route path="/creat" element={<Creat/>} />
     </Routes>
     <Mobile_Menu/>
-
     </BrowserRouter>
   </StrictMode>
 );

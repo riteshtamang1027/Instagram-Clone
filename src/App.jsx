@@ -14,6 +14,8 @@ export default function App() {
       <Left_Side/>
 
       </div>
+    
+
       <div className='overflow-y-auto lg:w-6/12 sm:w-9/12   top-0 h-screen '>
       <Middle_Area/>
 
