@@ -1,13 +1,18 @@
-import { Info } from "lucide-react";
+import { Info, X } from "lucide-react";
 import React from "react";
 
-export default function Notification() {
+export default function Notification({hide}) {
   
 
   return (
-    <div className="p-4">
-      <div className="h-screen w-[26vw] py-2 space-y-6 rounded-lg ">
+    <div className="  top-0 fixed  ml-64 h-[98vh] ">
+      <div className="bg-black fixed" onClick={hide}> </div>
+      <div className="h-screen w-[26vw] py-2 space-y-6 fixed z-50 border-r border-gray-300 bg-white rounded-lg ">
+        <div className="flex items-center justify-between">
         <p className="text-2xl font-bold opacity-90 px-4">Notifications</p>
+        <X onClick={hide} className="text-gray-500 hover:text-gray-700 hover:scale-125 duration-200  mr-4 cursor-pointer" />
+        </div>
+       
         <p className="font-bold opacity-85 px-4">This month </p>
 
         <div className="space-y-6">
@@ -55,6 +60,7 @@ export default function Notification() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

@@ -14,9 +14,52 @@ import React from "react";
 import instagram from "../../public/instagram.png";
 import { NavLink } from "react-router";
 
-export default function Left_Side() {
+export default function Left_Side({show}) {
+  const Links1 = [
+    {
+      icon: <House />,
+      path: "/",
+      title: "Home",
+    },
+    {
+      icon: <Search />,
+      title: "Search",
+      path: "/",
+    },
+    {
+      icon: <Compass />,
+      title: "Explores",
+      path: "/explore",
+    },
+    {
+      icon: <Film  />,
+      title: "Reels",
+      path: "/reels",
+    },
+    {
+      icon: <MessageCircleMore />,
+      title: "Messages",
+      path: "/messages",
+    },
+    {
+      icon: <Bell onClick={show} />,
+      title: <p onClick={show}>Notefication</p>,
+      // path: "/",
+    },
+    {
+      icon: <SquarePlus />,
+      title: "Create",
+      path: "/creat",
+    },
+    {
+      icon: <User />,
+      title: "Profile",
+      path: "/profile",
+    },
+  ];
+
   return (
-    <div className="bg-gray-50 shadow-xl px-8 pt-10  ">
+    <div className="bg-gray-50 shadow-xl px-8 pt-10">
       <img className=" h-[6vh] object-cover" src={instagram} alt="Image" />
       <div className="flex flex-col justify-between h-[84vh] mt-8 ">
         <div className="space-y-2">
@@ -47,48 +90,7 @@ export default function Left_Side() {
   );
 }
 
-const Links1 = [
-  {
-    icon: <House />,
-    path: "/",
-    title: "Home",
-  },
-  {
-    icon: <Search />,
-    title: "Search",
-    path: "/",
-  },
-  {
-    icon: <Compass />,
-    title: "Explores",
-    path: "/explore",
-  },
-  {
-    icon: <Film />,
-    title: "Reels",
-    path: "/reels",
-  },
-  {
-    icon: <MessageCircleMore />,
-    title: "Messages",
-    path: "/messages",
-  },
-  {
-    icon: <Bell />,
-    title: "Notefication",
-    path: "/notification",
-  },
-  {
-    icon: <SquarePlus />,
-    title: "Create",
-    path: "/creat",
-  },
-  {
-    icon: <User />,
-    title: "Profile",
-    path: "/profile",
-  },
-];
+
 
 const Links2 = [
   {
