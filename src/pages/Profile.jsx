@@ -9,6 +9,7 @@ export default function Profile() {
     
       <div className="  mt-12  ml-26 hidden md:block ">
         <div className="  mt-6 flex gap-x-24 items-center ">
+          
           <div className=" w-max relative  rounded-full ml-40">
             <img className="rounded-full " width={150} src={image} alt="" />
 
@@ -20,12 +21,14 @@ export default function Profile() {
           <div className="space-y-6">
             <div className="flex gap-2">
               <p className="font-semibold opacity-80 text-lg">Username</p>
+            
               <button className="bg-gray-200 font-semibold text-sm opacity-80 px-4 ml-4 py-1 rounded-md hover:bg-gray-300 cursor-pointer duration-300 whitespace-nowrap">
                 Edit profile
               </button>
               <button className="bg-gray-200 text-sm font-semibold opacity-80 px-4 py-1 rounded-md hover:bg-gray-300 cursor-pointer duration-300 whitespace-nowrap">
                 View archive
               </button>
+
               <Settings size={30} className="opacity-70" />
             </div>
 
