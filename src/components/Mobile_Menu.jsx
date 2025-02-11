@@ -20,7 +20,7 @@ export default function Mobile_Menu() {
           <Film />
         </NavLink>
 
-        <NavLink to={"/profile"}>
+        <NavLink to={"/Me"}>
           <User />
         </NavLink>
       </div>

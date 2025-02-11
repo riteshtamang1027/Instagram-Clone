@@ -3,7 +3,8 @@ import {
   Heart,
   MessageCircle,
   MoreHorizontal,
-  Share,
+  Send,
+  
 } from "lucide-react";
 
 export default function News_Feed_Section() {
@@ -17,7 +18,7 @@ export default function News_Feed_Section() {
         <div className="flex items-center  justify-between">
           <div className="flex items-center gap-2 mb-4">
             <img
-              className="rounded-full object-cover  h-12 w-12"
+              className="rounded-full object-cover  h-16 w-16"
               src={eachpost.Profile_Picture}
               alt="Image"
             />
@@ -29,20 +30,20 @@ export default function News_Feed_Section() {
             </p>
           </div>
 
-          <MoreHorizontal size={20} strokeWidth={2} />
+          <MoreHorizontal size={26} strokeWidth={2} className="opacity-70" />
         </div>
-        <div className="space-y-2 px-2">
+        <div className="space-y-3 ">
           
         <img
           className=" rounded-sm object-cover  h-[70vh] w-full"
           src={eachpost.Post_Picture}
           alt=""
         />
-        <div className="flex items-center justify-between">
-          <div className="flex gap-4">
+        <div className="flex items-center justify-between opacity-70">
+          <div className="flex gap-4 ">
             <Heart />
             <MessageCircle />
-            <Share />
+            <Send />
           </div>
           <Bookmark />
         </div>

@@ -14,7 +14,7 @@ import React from "react";
 
 export default function Mobile_Reels() {
   return (
-    <div className="block sm:hidden">
+    <div className="">
       {Reels.map((item, index) => (
         <div
           key={index}

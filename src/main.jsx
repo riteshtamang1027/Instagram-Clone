@@ -13,16 +13,17 @@ import Left_Side from "./components/Left_Side.jsx";
 import Reels from "./pages/Reels.jsx";
 import Mobile_Nav from "./components/Mobile_Nav.jsx";
 import Mobile_Menu from "./components/Mobile_Menu.jsx";
-import Mobile_Reels from "./pages/Mobile_Reels.jsx";
+import Mobile_Profile from "./pages/Mobile_Profile.jsx";
+import Mobile_Reels from "./Mobilepages/Mobile_Reels.jsx";
 export default function Root() {
   const location = useLocation();
-const [Bell,setBell]=useState(false);
-const show=()=>setBell(true);
-const hidden=()=>setBell(false)
+  const [Bell, setBell] = useState(false);
+  const show = () => setBell(true);
+  const hidden = () => setBell(false);
 
   return (
     <StrictMode>
-      {location.pathname !== "/reel" && <Mobile_Nav />}
+      {location.pathname !== "/reel" && location.pathname !== "/Me" && <Mobile_Nav />}
 
       <div className="flex relative h-screen ">
         <div className="sticky w-3/12 lg:w-2/12 hidden border-r border-gray-300 sm:block top-0 h-screen">
@@ -41,6 +42,7 @@ const hidden=()=>setBell(false)
             <Route path="/reels" element={<Reels />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/creat" element={<Creat />} />
+            <Route path="/Me" element={<Mobile_Profile />} />
             <Route path="/reel" element={<Mobile_Reels />} />
           </Routes>
         </div>
@@ -54,9 +56,7 @@ const hidden=()=>setBell(false)
           </div>
         )}
       </div>
-      {
-        Bell===true && <Notification hide={hidden} />
-      }
+      {Bell === true && <Notification hide={hidden} />}
 
       <Mobile_Menu />
     </StrictMode>

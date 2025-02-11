@@ -1,6 +1,5 @@
 import React from "react";
 import image from "../../public/image/demonslayer.jpg";
-import Left_Side from "../components/Left_Side";
 import { Plus, Settings } from "lucide-react";
 import Profile_Feed_Section from "./Profile_Feed_Section";
 import { FaThreads } from "react-icons/fa6";
@@ -8,7 +7,7 @@ import { FaThreads } from "react-icons/fa6";
 export default function Profile() {
   return (
     
-      <div className="  mt-12  ml-26 ">
+      <div className="  mt-12  ml-26 hidden md:block ">
         <div className="  mt-6 flex gap-x-24 items-center ">
           <div className=" w-max relative  rounded-full ml-40">
             <img className="rounded-full " width={150} src={image} alt="" />

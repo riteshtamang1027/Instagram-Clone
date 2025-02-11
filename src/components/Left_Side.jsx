@@ -43,7 +43,7 @@ export default function Left_Side({show}) {
     },
     {
       icon: <Bell onClick={show} />,
-      title: <p onClick={show}>Notefication</p>,
+      title: "Notefication",
       // path: "/",
     },
     {
