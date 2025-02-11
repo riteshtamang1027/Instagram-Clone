@@ -1,27 +1,10 @@
-import {
-  Bookmark,
-  Heart,
-  MessageCircle,
-  MoreHorizontal,
-  Music,
-  Send,
-  Volume2,
-} from "lucide-react";
-import React from "react";
-import Left_Side from "../components/Left_Side";
+import { Bookmark, Heart, MessageCircle, MoreHorizontal, Music, Send, Volume2 } from 'lucide-react'
+import React from 'react'
 
-export default function Reels() {
+export default function Mobile_Reels() {
   return (
-
-    <div className="hidden sm:block">
-       <div className="flex gap-x-96 ">
-      <div className="sticky w-3/12 lg:w-2/12 hidden border-r border-gray-300 sm:block top-0 h-screen">
-        <Left_Side />
-      </div>
-      <div>
-        <div className=" flex items-end  ">
-         
-          <div className="w-[24vw] h-[90vh] mt-8 relative bg-gray-900 rounded-sm">
+    
+       <div className="w-full h-screen block sm:hidden relative bg-black">
             <div className="w-max absolute top-2 bg-white border rounded-full p-4 opacity-30 right-2 ">
               {" "}
             </div>
@@ -30,15 +13,15 @@ export default function Reels() {
             <video
               autoPlay
               loop
-              controls
+              
               className="absolute top-48"
               src="https://cdn.pixabay.com/video/2019/10/18/28052-367411298_tiny.mp4"
             />
 
-            <div className=" text-white absolute space-y-4  bottom-8 left-8">
+            <div className=" text-white absolute  space-y-4 bottom-16 left-4  ">
               <div className="flex items-center gap-x-2   ">
                 <img
-                  className="w-[2.8vw] h-[6vh] object-cover rounded-full"
+                  className="w-[8vw] h-[7vh] object-cover rounded-full"
                   src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
                   alt=""
                 />
@@ -49,7 +32,7 @@ export default function Reels() {
                   Follow
                 </button>
               </div>
-              <p>
+              <p className='text-sm'>
                 Lorem ipsum dolor sit amet...{" "}
                 <span className="opacity-60">more</span>{" "}
               </p>
@@ -59,9 +42,7 @@ export default function Reels() {
                 <p className="font-semibold text-sm">Song name</p>
               </div>
             </div>
-          </div>
-
-          <div className="space-y-4 ml-8 opacity-75">
+            <div className="space-y-4 text-white absolute right-4 bottom-16 opacity-75">
             <div>
               <Heart className="cursor-pointer" />
               <p>123</p>
@@ -75,17 +56,12 @@ export default function Reels() {
             <MoreHorizontal className="cursor-pointer" />
             <div className="border hover:opacity-40 rounded-md">
               <img
-                className="w-[2vw] h-[4vh] object-cover cursor-pointer rounded-md"
+                className="w-[6vw] h-[4vh] object-cover cursor-pointer rounded-md"
                 src="https://images.unsplash.com/photo-1474447976065-67d23accb1e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D "
                 alt="Image"
               />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    </div>
-   
-  );
+          </div>
+  )
 }
