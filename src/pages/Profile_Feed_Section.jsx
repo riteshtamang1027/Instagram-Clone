@@ -4,6 +4,7 @@ import React from 'react'
 export default function Profile_Feed_Section() {
   return (
     <div className=''>
+
         <div className='flex gap-8 ml-60'>
         <div className='flex items-center gap-1 px-4 py-2 hover:border-t hover:border-gray-500 w-max'>
      <Grid3x3 className='opacity-60' size={12} />
@@ -25,7 +26,8 @@ export default function Profile_Feed_Section() {
      <p className='font-bold text-sm opacity-70'>TAGGED</p>
      </div>
         </div>
-        <div className='flex gap-x-4'>
+
+        <div  className='flex gap-x-4 '>
           
         {
           Posts.map((item,index)=>(

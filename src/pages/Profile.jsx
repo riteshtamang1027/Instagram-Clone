@@ -7,11 +7,7 @@ import { FaThreads } from "react-icons/fa6";
 
 export default function Profile() {
   return (
-    <div className="flex relative h-screen ">
-      <div className="sticky w-3/12 lg:w-2/12 hidden   border-r border-gray-300 sm:block top-0 h-screen">
-        <Left_Side  />
-      </div>
-
+    <div>
       <div className=" overflow-y-auto top-0  h-screen w-9/12 mx-auto ">
         <div className="  mt-6 flex gap-x-24 items-center ">
           <div className=" w-max relative  rounded-full ml-40">
