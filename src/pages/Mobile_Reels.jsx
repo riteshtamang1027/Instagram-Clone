@@ -21,7 +21,7 @@ export default function Mobile_Reels() {
             <div className=" text-white absolute  space-y-4 bottom-16 left-4  ">
               <div className="flex items-center gap-x-2   ">
                 <img
-                  className="w-[8vw] h-[7vh] object-cover rounded-full"
+                  className="w-[10vw] h-[5vh] object-cover rounded-full"
                   src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
                   alt=""
                 />
