@@ -8,19 +8,20 @@ import {
 
 export default function News_Feed_Section() {
   return (
-    <div div className="mt-8 lg:px-20 px-4 space-y-8">
+    <div  className="mt-8 lg:px-20 px-4 space-y-8">
       {/* Single Post */}
+     
       {
         Post.map((eachpost,index)=>(
-            <div key={index} className=" space-y-2">
+            <div key={index} className=" space-y-4">
         <div className="flex items-center  justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 mb-4">
             <img
-              className="rounded-full object-cover  h-16 w-16"
+              className="rounded-full object-cover  h-12 w-12"
               src={eachpost.Profile_Picture}
-              alt=""
+              alt="Image"
             />
-            <p>
+            <p className="font-bold">
             {eachpost.Username} 
               <span className="text-xs mx-2 opacity-70 font-semibold">
                  .10 min ago
@@ -30,6 +31,8 @@ export default function News_Feed_Section() {
 
           <MoreHorizontal size={20} strokeWidth={2} />
         </div>
+        <div className="space-y-2 px-2">
+          
         <img
           className=" rounded-sm object-cover  h-[70vh] w-full"
           src={eachpost.Post_Picture}
@@ -43,10 +46,14 @@ export default function News_Feed_Section() {
           </div>
           <Bookmark />
         </div>
+        
         <p>
          
           {eachpost.Caption}
         </p>
+        </div>
+
+        
       <hr className="text-gray-300 mt-8" />
 
       </div>

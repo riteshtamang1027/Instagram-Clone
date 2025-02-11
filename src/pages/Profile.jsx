@@ -7,8 +7,8 @@ import { FaThreads } from "react-icons/fa6";
 
 export default function Profile() {
   return (
-    <div>
-      <div className=" overflow-y-auto top-0  h-screen w-9/12 mx-auto ">
+    
+      <div className="  mt-12  ml-26 ">
         <div className="  mt-6 flex gap-x-24 items-center ">
           <div className=" w-max relative  rounded-full ml-40">
             <img className="rounded-full " width={150} src={image} alt="" />
@@ -63,6 +63,5 @@ export default function Profile() {
           <Profile_Feed_Section />
         </div>
       </div>
-    </div>
   );
 }

@@ -3,12 +3,12 @@ import News_Feed_Section from "./News_Feed_Section";
 
 export default function Middle_Area() {
   return (
-   <div className="px-4  -mt-4 md:pt-4">
-      <div className="flex mt-4 gap-x-4 overflow-x-scroll">
+   <div className="px-4  -mt-4  md:pt-4 ">
+      <div className="flex mt-4 gap-x-2 overflow-x-scroll space-y-2">
         {Stories.map((item, index) => (
-          <div key={index} className=" flex flex-col items-center   ">
+          <div key={index} className=" flex flex-col items-center gap-1    ">
             <img
-              className="rounded-full object-cover h-16 w-16 border-2 border-orange-700 p-0.5"
+              className="rounded-full object-cover h-14 w-14 border-2 border-orange-700 p-0.5"
               src={item.profiltpicture}
               alt="Image"
             />

@@ -2,10 +2,10 @@ import React from 'react'
 import { Bookmark, Camera, ChevronDown, Heart, HeartCrack, MessageCircle, MoreHorizontal, Music, Music2, Send } from 'lucide-react'
 export default function Reels() {
   return (
-    <div>
+    <div className='hidden sm:block space-y-12 mt-8 ml-98'>
         
         {Reel.map((item,index)=>(
-           <div key={index} className="w-full h-screen block sm:hidden relative bg-black overflow-hidden">
+           <div key={index} className="w-[28vw] h-[92vh] rounded-md relative bg-black overflow-hidden">
           
          
 
@@ -35,7 +35,7 @@ export default function Reels() {
              
              <div className="flex items-center gap-x-4   ">
                <img
-                 className="w-[10vw] h-[7vh] object-cover rounded-full"
+                 className="w-[4vw] h-[8vh] object-cover rounded-full"
                  src={item.img}
                  alt="Image"
                />
