@@ -64,12 +64,11 @@ console.log(surname);
 
 var as = null;
 let are = null;
-console.log(as,"This is null value");
-console.log(are,"This is null value");
+console.log(as, "This is null value");
+console.log(are, "This is null value");
 
 //4. OPERATORS IN JS
 // --> Operators are used to perform  logical, Mathematical and comparison operations.
-
 
 // ASSIGNMENT OPERATORS (=)
 
@@ -84,74 +83,66 @@ const n1 = 20;
 const n2 = 70;
 
 // greater than (>) --> it return booleans (true or false)
-console.log(n1>n2);
+console.log(n1 > n2);
 
 // Less than (<)
-console.log(n1<n2,"This is comparision operators");
-
+console.log(n1 < n2, "This is comparision operators");
 
 // Addition operator (+)
- console.log(n1+n2,"This is addition operator")
+console.log(n1 + n2, "This is addition operator");
 
 //  Subtraction Operation  (-);
-console.log(n1-n2,"this is subtractio operator");
-
+console.log(n1 - n2, "this is subtractio operator");
 
 // Multiplication Operator
-const w=n1*n2;
-console.log(w,"this is multiplication operator");
+const w = n1 * n2;
+console.log(w, "this is multiplication operator");
 
 // Division operator(/)
- const x=n1/n2;
- console.log(x,"This is division operator");
-
+const x = n1 / n2;
+console.log(x, "This is division operator");
 
 //  Value equal to operator (==)
-const v1=10;
-const v2="10";
-console.log(v1==v2);
-
+const v1 = 10;
+const v2 = "10";
+console.log(v1 == v2);
 
 // Type equal to operator(===)
-console.log(v1===v2);
+console.log(v1 === v2);
 
 // Value not equal to operator(!=)
-console.log(v1!=v2);
+console.log(v1 != v2);
 
 // Type not equal to operator(!==)
-console.log(v1!==v2);
+console.log(v1 !== v2);
 
 // Greater than or equal to operator (>=)
- const rt=7;
- const re=20;
- console.log(rt>=re)
+const rt = 7;
+const re = 20;
+console.log(rt >= re);
 
 // Less than or equal to operator (<=)
-console.log(rt<=re)
+console.log(rt <= re);
 
 // Conditional operator (?,:) -->(Shor form of If else )
-const criteriaAge=20;
-const studentage=16;
+const criteriaAge = 20;
+const studentage = 16;
 
-console.log(criteriaAge < studentage ? "yes you are able to votting " :"babu timi ghar jaw" )
-
+console.log(
+  criteriaAge < studentage
+    ? "yes you are able to votting "
+    : "babu timi ghar jaw"
+);
 
 // Imcroment operator (++) (it increase the value by 1)
 
-let num=10;
+let num = 10;
 // num++;
 // ++num
-console.log(++num)
+console.log(++num);
 
 // Decrement  operator (--) (it decrease the value by 1)
-console.log(--num)
-
-
-
-
-
-
-
+console.log(--num);
 
 
 
