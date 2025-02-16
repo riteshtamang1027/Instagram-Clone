@@ -107,9 +107,6 @@ console.log(Object.entries(Person)[1][1]);
 
 // Array 
 // -->Collection of similar data type under the same name is called array
-
-
-
 // array can be further classified into two types 
 // 1. Array of string 
 // 2. Array of Object

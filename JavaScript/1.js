@@ -1,7 +1,3 @@
-// console.log("Hello World");
-
-// const { CLSThresholds } = require("web-vitals");
-
 //1. JAVASCRIPT
 // -->JavaScript is the object oriented client side scripting language.
 // -->In early days JS was used in browser for interactivity.
