@@ -9,8 +9,8 @@ export default function Mobile_Menu() {
         <NavLink to={"/"}>
           <House />
         </NavLink>
-        <NavLink to={"/"}>
-          <Search />
+        <NavLink to={"/search"}>
+          <Search  />
         </NavLink>
         <NavLink to={"/creat"}>
           <SquarePlus />

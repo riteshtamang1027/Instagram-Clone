@@ -1,6 +1,8 @@
 import React from 'react'
 import Middle_Area from './components/Middle_Area'
 export default function App() {
+ 
+
   return (
     <div>
 
@@ -8,6 +10,7 @@ export default function App() {
     
 
       <Middle_Area/>
+      
 
       </div>
       

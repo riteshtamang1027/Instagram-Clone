@@ -16,6 +16,7 @@ import Mobile_Menu from "./components/Mobile_Menu.jsx";
 import Mobile_Profile from "./pages/Mobile_Profile.jsx";
 import Mobile_Reels from "./Mobilepages/Mobile_Reels.jsx";
 import Search from "./pages/Search.jsx";
+import Search_Mobile from "./Mobilepages/Search_Mobile.jsx";
 
 
 export default function Root() {
@@ -30,9 +31,10 @@ export default function Root() {
 
   const hide = () => setSearch(false);
 
+
   return (
     <StrictMode>
-      {location.pathname !== "/reels" && location.pathname !== "/Me" && <Mobile_Nav />}
+      {location.pathname !== "/reels" && location.pathname !== "/Me" && location.pathname !== "/search" &&  <Mobile_Nav />}
 
       <div className="flex relative h-screen ">
         <div className="sticky w-3/12 lg:w-2/12 hidden border-r border-gray-300 sm:block top-0 h-screen">
@@ -47,6 +49,8 @@ export default function Root() {
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/search" element={<Search_Mobile />} />
+
             <Route path="/messages" element={<Messages />} />
             <Route path="/reels" element={<Reels />} />
             <Route path="/explore" element={<Explore />} />
@@ -69,9 +73,11 @@ export default function Root() {
       {Bell === true && <Notification hide={hidden} /> }
     
 {
-  search===true && <Search Show={Show}/>
+  search===true && <Search hidden={hide}/>
 }
-      <Mobile_Menu />
+
+
+      <Mobile_Menu  />
     </StrictMode>
   );
 }
