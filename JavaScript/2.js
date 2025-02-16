@@ -1,12 +1,12 @@
 // Data Type in JS
 // --> Classification of data into different types is called data types.
-// --> In js data types are classified nto two types 
+// --> In js data types are classified into two types 
 //  1. Primitive data type 
 //  2. Non-primitive data type 
 
 
 //  1. Primitive data type 
-//  --> Primitive data type are those  having  single value. 
+//  --> Primitive data type are those datatype which have  single value. 
 // --> There are 6 primitive data type in js
 // 1. Number
 // 2.String
@@ -27,7 +27,8 @@
 
 // -->There are three non-primitive data type 
 // 1.Object (Object,Array.Function)
-//  2.Array 3.Function
+//  2.Array
+//  3.Function
 
 
 // a.Number 
@@ -54,9 +55,11 @@ console.log(Name);
 console.log(Name.toUpperCase());
 console.log(Name.toLowerCase());
 console.log(Name.length);
-console.log(Name.charAt(5));
+console.log(Name.charAt(5),"This is charAt");
 console.log(Name.slice(0,4));
 console.log(surname.split("-")[1]);
+console.log(surname.split("-"),"This ia a split");
+
 // c. Boolean --> Its always returns true or false.
 const isAdmin =true
 console.log(isAdmin)
@@ -97,7 +100,9 @@ console.log(Person);
 // Method of object (Object.keys(),object.values(),Object.entries());
 console.log(Object.keys(Person));
 console.log(Object.values(Person)[1]);
+console.log(Object.entries(Person));
 console.log(Object.entries(Person)[1][1]);
+
 
 
 // Array 
@@ -143,14 +148,14 @@ console.log(People1[1].Name.toUpperCase())
 console.log(People1[1].Name.slice(0,4))
 
 // Methods of Array (push())
-console.log(People1.push({Name:"Ritesh",age:20}));
-console.log(People1);
+// console.log(People1.push({Name:"Ritesh",age:20}));
+// console.log(People1);
 const newpeople ={
     Name:"Ganesh",
     age:16
 }
-People1.push(newpeople)
-console.log(People1)
+const newpeople1=People1.push(newpeople)
+console.log(newpeople1);
 
 
 

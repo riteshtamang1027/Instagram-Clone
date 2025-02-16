@@ -16,7 +16,7 @@ export default function Mobile_Menu() {
           <SquarePlus />
         </NavLink>
 
-        <NavLink to={"/reel"}>
+        <NavLink to={"/reels"}>
           <Film />
         </NavLink>
 

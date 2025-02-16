@@ -9,7 +9,7 @@ export default function Discover_People() {
         <p className="text-blue-600">See All</p>
       </div>
       
-        <div className="flex gap-2 overflow-x-scroll ">
+        <div className=" grid grid-cols-10 gap-4 overflow-x-scroll ">
           {Follow.map((item, index) => (
             <div
               key={index}
@@ -32,6 +32,7 @@ export default function Discover_People() {
                 <button className="bg-sky-500 text-xs text-white font-semibold px-6 py-1 mt-4 rounded-md">
                   Follow
                 </button>
+
               </div>
             </div>
           ))}
@@ -55,6 +56,30 @@ const Follow = [
     Followedby: "someone12",
   },
   
+  {
+    profile:
+      "https://images.unsplash.com/photo-1587723958656-ee042cc565a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    Name: "Maw Maw",
+    Followedby: "someone12",
+  },
+  {
+    profile:
+      "https://images.unsplash.com/photo-1587723958656-ee042cc565a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    Name: "Maw Maw",
+    Followedby: "someone12",
+  },
+  {
+    profile:
+      "https://images.unsplash.com/photo-1587723958656-ee042cc565a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    Name: "Maw Maw",
+    Followedby: "someone12",
+  },
+  {
+    profile:
+      "https://images.unsplash.com/photo-1587723958656-ee042cc565a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    Name: "Maw Maw",
+    Followedby: "someone12",
+  },
   {
     profile:
       "https://images.unsplash.com/photo-1587723958656-ee042cc565a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",

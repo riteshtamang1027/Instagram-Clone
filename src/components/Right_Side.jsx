@@ -6,7 +6,7 @@ export default function Right_Side() {
     <div className=" px-4 pt-10">
       <div className="flex items-center justify-between font-semibold opacity-70 mb-8 px-2">
         <p>Suggested for you</p>
-        <p className="text-blue-500 cursor-pointer">See All</p>
+        <p className="text-blue-500 cursor-pointer ">See All</p>
       </div>
 
       <div className="space-y-6 px-2 ">
@@ -17,7 +17,7 @@ export default function Right_Side() {
             
               <img
                 height={50}
-                className="rounded-full object-cover"
+                className="rounded-full object-cover cursor-pointer"
                 width={50}
                 src={item.Profile}
                 alt="Image"
@@ -29,7 +29,7 @@ export default function Right_Side() {
               </div>
             </div>
 
-            <p className="text-blue-500 font-semibold ">Follow</p>
+            <p className="text-blue-500 font-semibold cursor-pointer">Follow</p>
           </div>
         ))}
       </div>

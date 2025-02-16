@@ -14,7 +14,7 @@ import React from "react";
 import instagram from "../../public/instagram.png";
 import { NavLink } from "react-router";
 
-export default function Left_Side({show}) {
+export default function Left_Side({show,Show}) {
   const Links1 = [
     {
       icon: <House />,
@@ -22,9 +22,9 @@ export default function Left_Side({show}) {
       title: "Home",
     },
     {
-      icon: <Search />,
+      icon: <Search onClick={Show} />,
       title: "Search",
-      path: "/",
+      // path: "/search",
     },
     {
       icon: <Compass />,
