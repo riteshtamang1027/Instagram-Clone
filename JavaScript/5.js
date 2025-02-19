@@ -1,12 +1,14 @@
 // Destructuring
 // Extracting the values from Object or array from the parent Variable. 
 
-const People ={
-    Name:"Ritesh Tamang",
-    location :"Kathmandu",
-    age:20,
-    contact :9843752070,
-}
+const People =
+    {
+        Name:"RItesh Tamang",
+        occupation :"Student",
+        age:20,
+        city:"Kathmandu",
+    }
 
-const {Name,age}=People;
-console.log(Name, age);
+
+const {Name,city}=People;
+console.log(Name,city)

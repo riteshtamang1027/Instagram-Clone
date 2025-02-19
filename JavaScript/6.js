@@ -1,14 +1,16 @@
 // SPREAD OPERATOR
-// --> It helps to make the new object or array from existing object or array.
-const People = {
-  Name: "Ritesh Tamang",
-  location: "Kathmandu",
-  age: 20,
-  contact: 9843752070,
-};
+// --> It helps to make the new object or array from exesting object or array.
+const ritesh =[
+  {
+    Name:"Ritesh Tamang",
+    age:20,
+    city:"Kathmandu",
+  }
+]
+const newritesh ={...ritesh,quiification:"bachlor"};
+console.log(ritesh)
+console.log(newritesh)
 
-const newpeople ={...People,qualification:"Join Bachlor", age:21};
-console.log(newpeople);
 
 // JSON (JavaScript Object Notation Program)
 // -->JSON is lightweight object  notation format. 
