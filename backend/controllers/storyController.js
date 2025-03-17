@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { Story } from "../models/storyModel.js";
 import cloudinary from "../lib/cloudinaryConfig.js";
 
@@ -17,7 +16,7 @@ export const creatStory = async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({
-      message: "Somethin went wrong.",
+      message: "Somethin went wrong.", 
       error,
     });
   }

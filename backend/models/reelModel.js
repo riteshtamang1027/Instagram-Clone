@@ -15,4 +15,4 @@ const reelSchema = new mongoose.Schema({
 //   ]
 });
 
-export const Rell = mongoose.model("Rell", reelSchema);
+export const Reel = mongoose.model("Reel", reelSchema);

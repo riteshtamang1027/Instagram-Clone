@@ -1,10 +1,15 @@
-import express from 'express';
-const router= express.Router();
+import express from "express";
+import {
+  creatReel,
+  deleteRellById,
+  getAllRell,
+  getRellById,
+} from "../controllers/rellController.js";
+const router = express.Router();
 
-router.post("/",Somethingcontroller);
-router.get("/",Somethingcontroller);
-router.get("/:id",Somethingcontroller);
-router.patch("/:id",Somethingcontroller);
-router.delete("/:id",Somethingcontroller);
+router.post("/", creatReel);
+router.get("/", getAllRell);
+router.get("/:id", getRellById);
+router.delete("/:id", deleteRellById);
 
 export default router;
