@@ -29,7 +29,7 @@ try {
 app.use("/users", usersRoutes);
 app.use("/posts", postRouter);
 app.use("/Reels", reelRoutes);
-app.use("/stories", upload.single("storyPicture"), storyRoutes);
+app.use("/stories", storyRoutes);
 
 app.listen(process.env.APP_PORT, () => {
   console.log(`server is running on http://localhost:${process.env.APP_PORT}`);

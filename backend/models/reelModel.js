@@ -5,7 +5,7 @@ const reelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  postPicture: { type: String, riquired: true },
+  // postPicture: { type: String, riquired: true },
   video:{type:String,required:true},
   likeCount:{type:Number,required:true,default:0}
 //   comments:[

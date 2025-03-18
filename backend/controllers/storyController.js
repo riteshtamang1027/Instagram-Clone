@@ -3,6 +3,7 @@ import cloudinary from "../lib/cloudinaryConfig.js";
 
 export const creatStory = async (req, res) => {
   try {
+    console.log(req.file)
     const file = req.file;
     const cloudinaryResponse = await cloudinary.uploader.upload(file.path);
 
@@ -51,6 +52,11 @@ export const getStoryById = async (req, res) => {
 export const deleteStoryById = async (req, res) => {
   try {
     const deleteStory = await Story.findByIdAndDelete(req.params.id);
+    if(!deleteStory){
+      return res.status(404).json({
+      message:"Story not found."
+      })
+    }
     return res.status(200).json({
       message: "successfully deleted",
       story: deleteStory,

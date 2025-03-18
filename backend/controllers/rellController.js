@@ -36,10 +36,10 @@ export const getAllRell = async (req, res) => {
 };
 export const getRellById = async (req, res) => {
   try {
-    const Reel = await Reel.findById(req.params.id);
+    const getReel = await Reel.findById(req.params.id);
     return res.status(200).json({
       message: "Reel fetch successfully.",
-      Reel: Reel,
+      Reel: getReel,
     });
   } catch (error) {
     return res.status(500).json({
@@ -51,6 +51,11 @@ export const getRellById = async (req, res) => {
 export const deleteRellById = async (req, res) => {
   try {
     const deleteRell = await Reel.findByIdAndDelete(req.params.id);
+    if(!deleteRell){
+      return res.status(404).json({
+        message:"Reel not found."
+      })
+    }
     return res.status(200).json({
       message: "successfully deleted",
       Reel: deleteRell,

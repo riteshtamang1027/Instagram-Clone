@@ -107,13 +107,11 @@ export const deleteUser = async (req, res) => {
 // update
 export const updateUser = async (req, res) => {
   try {
-
-
     const user = await User.findById(req.params.id)
     // TODO :  Token verification
     let newHashedPassword= user.password;
     if (req.body.password) {
-      newHashedPassword = bcrypt.hash(req.body.password);
+      newHashedPassword = bcrypt.hash(req.body.password,saltRounds);
     }
     let newprofilePicture = user.profilePicture;
     if (req.file) {
@@ -138,7 +136,7 @@ export const updateUser = async (req, res) => {
 export const getAllUsers = async (req, res) => {
   try {
     const getAllUsers = await User.find();
-    const userCount = await User.find().countDocuments;
+    const userCount =  User.find().countDocuments;
     return res.status(200).json({
       message: "Success.",
       user: getUser,
