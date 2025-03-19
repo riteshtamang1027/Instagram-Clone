@@ -13,10 +13,10 @@ export const RegisterUser = async (req, res) => {
       return res.status(409).json({
         message: "You already have an account. Please Login.",
       });
-    } 
+    }
 
     //    2. Hash Password
-    const HashPassword = bcrypt.hash(req.body.password, saltRounds, error);
+    const HashPassword = await bcrypt.hash(req.body.password, saltRounds);
     if (!HashPassword) {
       return res.status(500).json({
         message: "Something went wrong to hash the password.",
@@ -35,14 +35,19 @@ export const RegisterUser = async (req, res) => {
     // 5.return the data
     return res.status(201).json({
       message: "You gave been registered successfully",
+      data: SaveUser,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
-      message: ("Internal Server Error.", error),
+      message: "Internal Server Error.",
       code: 500,
     });
   }
 };
+// difference between
+// 1.restapi
+// 2.graphicQL
 
 // Login user
 export const LoginUser = async (req, res) => {
@@ -55,7 +60,7 @@ export const LoginUser = async (req, res) => {
       });
     }
     // fif user exist the compare  the password
-    const isPasswordMatch = bcrypt.compare(
+    const isPasswordMatch = await bcrypt.compare(
       req.body.password,
       userExist.password
     );
@@ -67,17 +72,18 @@ export const LoginUser = async (req, res) => {
 
     // 3. generate jwt token if password is match
     const userToken = jwt.sign(
-      { email: userExist.email, _id: userExist._id },
+      { email: userExist.email, id: userExist._id },
       process.env.JWT_SECRET,
-      { expiresIn: " 7d" }
+      { expiresIn:"1h" }
     );
     return res.status(200).json({
       message: "user login successfull.",
       token: userToken,
     });
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
-      message: ("Internal Server Error.", error),
+      message: "Internal Server Error.",
       code: 500,
     });
   }
@@ -93,6 +99,11 @@ export const deleteUser = async (req, res) => {
     // allow delete only when _id and req.params.id match
 
     const deleteuser = await User.findByIdAndDelete(req.params.id);
+    if(!deleteuser){
+      return res.status(404).json({
+        message:"Data not found."
+      });
+    }
     return res.status(200).json({
       message: "Success.",
     });
@@ -107,11 +118,13 @@ export const deleteUser = async (req, res) => {
 // update
 export const updateUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id)
+    const user = await User.findById(req.params.id);
+
+
     // TODO :  Token verification
-    let newHashedPassword= user.password;
+    let newHashedPassword = user.password;
     if (req.body.password) {
-      newHashedPassword = bcrypt.hash(req.body.password,saltRounds);
+      newHashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     }
     let newprofilePicture = user.profilePicture;
     if (req.file) {
@@ -121,10 +134,18 @@ export const updateUser = async (req, res) => {
       newprofilePicture = cloudinaryResponse.secure_url;
     }
 
-    const updatedUser = await User.findByIdAndUpdate(req.params.id,{...req.body,password:newHashedPassword,profilePicture:newprofilePicture}, {new:true});
-    return res.status(200).json(
-      {  message:"Updated successfull"}
-    )
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        ...req.body,
+        password: newHashedPassword,
+        profilePicture: newprofilePicture,
+      },
+      { new: true }
+    );
+    return res.status(200).json({ 
+      message: "Updated successfull",
+    data:updatedUser });
   } catch (error) {
     return res.status(500).json({
       message: ("Internal Server Error.", error),
@@ -136,10 +157,10 @@ export const updateUser = async (req, res) => {
 export const getAllUsers = async (req, res) => {
   try {
     const getAllUsers = await User.find();
-    const userCount =  User.find().countDocuments;
+    const userCount = User.find().countDocuments;
     return res.status(200).json({
       message: "Success.",
-      user: getUser,
+      user: getAllUsers,
       countDocuments: userCount,
     });
   } catch (error) {
