@@ -3,12 +3,16 @@ import { Reel } from "../models/reelModel.js";
 
 export const creatReel = async (req, res) => {
   try {
-    const file = req.file;
-    const cloudinaryResponse = await cloudinary.uploader.upload(file.path);
+    const {profilePicture,video} = req.files;
+    const cloudinaryResponseprofilePicture = await cloudinary.uploader.upload(profilePicture[0].path);
+    const cloudinaryResponseVideo = await cloudinary.uploader.upload(video[0].path);
+
 
     const newCreateRell = await new Reel({
       ...req.body,
-      video: cloudinaryResponse.secure_url,
+      video: cloudinaryResponseVideo.secure_url,
+      profilePicture: cloudinaryResponseprofilePicture.secure_url,
+
     }).save();
     return res.status(201).json({
       message: "newRell Create successfully.",

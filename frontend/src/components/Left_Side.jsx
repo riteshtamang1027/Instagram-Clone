@@ -23,7 +23,7 @@ export default function Left_Side({show,Show,Showmore}) {
     },
     {
       icon: <Search onClick={Show} />,
-      title: "Search",
+      title: `Search  `,
       // path: "/search",
     },
     {

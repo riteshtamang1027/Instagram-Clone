@@ -3,18 +3,22 @@ import cloudinary from "../lib/cloudinaryConfig.js";
 
 export const creatPost = async (req, res) => {
   try {
-    const file = req.file;
-    const cloudinaryResponse = await cloudinary.uploader.upload(file.path);
+    const {postPicture,profilePicture} = req.files;
+    const cloudinaryResponse1 = await cloudinary.uploader.upload(postPicture[0].path);
+    const cloudinaryResponse2= await cloudinary.uploader.upload(profilePicture[0].path);
+
 
     const newCreatePost = await new Post({
       ...req.body,
-      storyPicture: cloudinaryResponse.secure_url,
+      postPicture: cloudinaryResponse1.secure_url,
+      profilePicture: cloudinaryResponse2.secure_url,
     }).save();
     return res.status(201).json({
       message: "newPost Create successfully.",
       post: newCreatePost,
     });
   } catch (error) {
+    console.log(error )
     return res.status(500).json({
       message: "Somethin went wrong.",
       error,
@@ -53,7 +57,7 @@ export const updatePostById =async (req ,res)=>{
         return res.status(200).json({
             message:"successfully updated.",
             post:updatedPost,
-            updatedTime:new Date().getTime(),
+            updatedTime:new Date().getTime(), 
         })
         
     } catch (error) {
