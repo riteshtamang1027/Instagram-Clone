@@ -7,7 +7,7 @@ import { ContactRound, Film } from "lucide-react";
 
 export default function Mobile_Profile() {
   return (
-    <div className="block sm:hidden space-y-6 px-4">
+    <div className="block sm:hidden space-y-6 w-11/12 mx-auto">
       {/* Navbar section */}
       <Profile_Nav />
       <Middle_Profile />
@@ -20,7 +20,7 @@ export default function Mobile_Profile() {
             <ContactRound className="opacity-60" />
           </div>
 
-          <div className="grid grid-cols-3 gap-2  ">
+          <div className="grid grid-cols-2 gap-7  ">
             {Posts.map((item, index) => (
               <div
                 key={index}
@@ -45,7 +45,5 @@ const Posts = [
     img: "https://images.unsplash.com/photo-1738494610263-4e27d9d4e201?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 
-  {
-    img: "https://images.unsplash.com/photo-1738494610263-4e27d9d4e201?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
+  
 ];

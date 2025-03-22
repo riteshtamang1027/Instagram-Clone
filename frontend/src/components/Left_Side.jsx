@@ -14,7 +14,7 @@ import React from "react";
 import instagram from "../../public/instagram.png";
 import { NavLink } from "react-router";
 
-export default function Left_Side({show,Show,Showmore}) {
+export default function Left_Side({show,Show,Showmore,showcreate}) {
   const Links1 = [
     {
       icon: <House />,
@@ -47,9 +47,9 @@ export default function Left_Side({show,Show,Showmore}) {
       // path: "/",
     },
     {
-      icon: <SquarePlus />,
+      icon: <SquarePlus onClick={showcreate} />,
       title: "Create",
-      path: "/creat",
+      // path: "/creat",
     },
     {
       icon: <User />,

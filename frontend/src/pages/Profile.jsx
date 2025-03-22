@@ -3,6 +3,7 @@ import image from "../../public/image/demonslayer.jpg";
 import { Plus, Settings } from "lucide-react";
 import Profile_Feed_Section from "./Profile_Feed_Section";
 import { FaThreads } from "react-icons/fa6";
+import Discover_People from "../Mobilepages/Discover_People";
 
 export default function Profile() {
   return (
@@ -60,7 +61,8 @@ export default function Profile() {
           </div>
           <p className="font-semibold text-sm opacity-70">New</p>
         </div>
-        <div className="w-10/12 mx-auto mt-24">
+        <Discover_People />
+        <div className="w-10/12 mx-auto mt-6">
           <hr className=" text-gray-300" />
           <Profile_Feed_Section />
         </div>

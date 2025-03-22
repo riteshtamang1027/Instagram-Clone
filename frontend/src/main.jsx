@@ -22,17 +22,21 @@ import More from "./pages/More.jsx";
 export default function Root() {
   const location = useLocation();
   const [Bell, setBell] = useState(false);
-  const show = () => setBell(true);
+  const show2 = () => setBell(true);
   const hidden = () => setBell(false);
 
   const [search, setSearch] = useState(false);
-  const Show = () => setSearch(true);
-
+  const Show1= () => setSearch(true);
   const hide = () => setSearch(false);
 
   const [showMore, setShowmore] = useState(false);
   const Showmore = () => setShowmore(true);
   const hidemore = () => setShowmore(false);
+
+
+  const [Create, setCreate] = useState(false);
+  const showcreate = ()=>setCreate(true);
+  const hidden3 = ()=>setCreate(false);
 
   return (
     <StrictMode>
@@ -42,7 +46,7 @@ export default function Root() {
 
       <div className="flex relative h-screen ">
         <div className="sticky w-4/12 lg:w-2/12 hidden border-r border-gray-300 sm:block top-0 h-screen">
-          <Left_Side Show={Show} show={show} Showmore={Showmore} />
+          <Left_Side Show={Show1} show={show2} Showmore={Showmore} showcreate={showcreate} />
         </div>
 
         <div
@@ -76,8 +80,10 @@ export default function Root() {
 
       {Bell === true && <Notification hide={hidden} />}
 
-      {search === true && <Search hidden={hide} />}
+      {search && <Search hidden={hide} />}
       {showMore && <More hidemore={hidemore} />}
+
+      {Create  && <Creat hidden3={hidden3}/>}
 
       <Mobile_Menu />
     </StrictMode>
