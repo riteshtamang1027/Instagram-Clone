@@ -1,9 +1,9 @@
 import React from "react";
-import image from "../../public/image/demonslayer.jpg";
 import { Plus, Settings } from "lucide-react";
 import Profile_Feed_Section from "./Profile_Feed_Section";
 import { FaThreads } from "react-icons/fa6";
 import Discover_People from "../Mobilepages/Discover_People";
+import image from '../../public/images/tanjiro.jpg'
 
 export default function Profile() {
   return (
@@ -12,7 +12,7 @@ export default function Profile() {
         <div className="  mt-6 flex gap-x-24 items-center ">
           
           <div className=" w-max relative  rounded-full ml-40">
-            <img className="rounded-full " width={150} src={image} alt="" />
+            <img className="rounded-full w-36 h-36 object-cover " width={1500} height={1500} src={image} alt="" />
 
             <div className="h-10 w-20 bg-white border border-gray-200 shadow-2xl  absolute flex items-center justify-center   -top-8 left-8 rounded-lg">
               <p className=" text-xs  ">Note...</p>

@@ -6,13 +6,13 @@ import React from "react";
 export default function Discover_People() {
   return (
     <>
-      <div className="text-xs font-semibold flex items-center ml-36 mt-12 md:text-lg justify-between ">
+      <div className="text-xs font-semibold flex items-center md:ml-36 md:mt-12 md:text-lg justify-between ">
         <p className="opacity-70 ">Discover people</p>
         <p className="text-blue-600">See All</p>
       </div>
 
       <div className="mt-4 ">
-        <div className="flex gap-x-2 ml-36 ">
+        <div className="flex gap-x-2 md:ml-36 ">
           {Follow.map((item, index) => (
             <div
               key={index}

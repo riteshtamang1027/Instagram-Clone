@@ -1,16 +1,19 @@
 import React from "react";
-import image from "../../public/image/demonslayer.jpg";
+// import image from "../../public/image/demonslayer.jpg";
 import { FaThreads } from "react-icons/fa6";
 import { UserRound } from "lucide-react";
+import image from '../../public/images/tanjiro.jpg'
+
 
 export default function Middle_Profile() {
   return (
     <div className="space-y-4">
       <div className="flex">
         <div className="relative  rounded-full ">
-          <img className="rounded-full " width={70} src={image} alt="" />
+        <img className="rounded-full w-18 h-18 object-cover " width={1500} height={1500} src={image} alt="" />
 
-          <div className="h-7 w-14 bg-white border border-gray-200 shadow-2xl  absolute flex items-center justify-center    -top-2 left-2 rounded-lg">
+
+          <div className="h-7 w-14 bg-white border border-gray-200 shadow-2xl  absolute flex items-center justify-center    -top-5 left-2 rounded-lg">
             <p className=" text-xs   ">Note...</p>
           </div>
         </div>
