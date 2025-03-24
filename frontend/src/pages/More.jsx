@@ -13,10 +13,10 @@ export default function More({ hidemore }) {
 
   const [SwitchAccount, setSwitchAccount] = useState(false);
   const show = () =>{ 
-    setSwitchAccount(true);
-    setisActive(true);
+    setSwitchAccount(!SwitchAccount);
+    setisActive(!isActive);
   };
-  const hidden = () => setSwitchAccount(false);
+  const hidden = () => setSwitchAccount(!SwitchAccount);
 
 
   return (

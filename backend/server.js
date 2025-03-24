@@ -3,8 +3,7 @@ import mongoose from "mongoose";
 // corss origin resource sharing
 import cors from "cors";
 import "dotenv/config";
-import multer from "multer";
-const upload = multer({ dest: "uploader" });
+
 import usersRoutes from "./routes/usersRoutes.js";
 import postRouter from "./routes/postRouter.js";
 

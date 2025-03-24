@@ -1,12 +1,15 @@
 import axios from "axios";
 import {
   Bookmark,
+  Eye,
   Heart,
   MessageCircle,
   MoreHorizontal,
   Send,
+  Trash,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router";
 
 export default function News_Feed_Section() {
   const [Post, setPost] = useState();
@@ -24,6 +27,18 @@ export default function News_Feed_Section() {
   useEffect(() => {
     fetchPost();
   },[]);
+
+
+  const deletePost= async(_id)=>{
+    try {
+      const response = await axios.delete(`http://localhost:5000/posts/${_id}`);
+      fetchPost();
+    } catch (error) {
+      console.log("Something went wrong")
+      
+    }
+  }
+  
   return (
     <div className="mt-8 lg:px-20  space-y-4">
       {/* Single Post */}
@@ -45,6 +60,11 @@ export default function News_Feed_Section() {
                 </span>
               </p>
             </div>
+
+
+           <NavLink to={`/view_post/${eachpost._id}`}> <Eye/></NavLink>
+
+            <Trash onClick={()=>deletePost(eachpost._id)}/>
 
             <MoreHorizontal
               size={26}

@@ -18,6 +18,7 @@ import Mobile_Reels from "./Mobilepages/Mobile_Reels.jsx";
 import Search from "./pages/Search.jsx";
 import Search_Mobile from "./Mobilepages/Search_Mobile.jsx";
 import More from "./pages/More.jsx";
+import ViewPost from "./pages/viewPost.jsx";
 
 export default function Root() {
   const location = useLocation();
@@ -65,6 +66,8 @@ export default function Root() {
             <Route path="/creat" element={<Creat />} />
             <Route path="/Me" element={<Mobile_Profile />} />
             <Route path="/reel" element={<Mobile_Reels />} />
+            <Route path="/view_post/:id" element={<ViewPost/>} />
+
           </Routes>
         </div>
         {location.pathname === "/" && (
