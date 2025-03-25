@@ -43,7 +43,10 @@ export default function Root() {
     <StrictMode>
       {location.pathname !== "/reels" &&
         location.pathname !== "/Me" &&
-        location.pathname !== "/search" && <Mobile_Nav />}
+        location.pathname !== "/search" && <Mobile_Nav />
+        }
+
+        
 
       <div className="flex relative h-screen ">
         <div className="sticky w-4/12 lg:w-2/12 hidden border-r border-gray-300 sm:block top-0 h-screen">
@@ -51,15 +54,16 @@ export default function Root() {
         </div>
 
         <div
-          className={`overflow-y-auto md:px-12   top-0 h-screen  ${
+          className={`overflow-y-auto    top-0 h-screen  ${
             location.pathname === "/" ? "lg:w-7/12" : "lg:w-10/12"
-          } ${location.pathname === "/" ? "sm:w-9/12" : "sm:w-12/12"}`}
+          } ${location.pathname === "/" ? "sm:w-9/12" : "sm:w-12/12"} 
+        
+         `}
         >
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/search" element={<Search_Mobile />} />
-
             <Route path="/messages" element={<Messages />} />
             <Route path="/reels" element={<Reels />} />
             <Route path="/explore" element={<Explore />} />
@@ -70,9 +74,9 @@ export default function Root() {
 
           </Routes>
         </div>
-        {location.pathname === "/" && (
+        {location.pathname === "/" &&  (
           <div
-            className={`   h-screen px-4 bg-gray-50  hidden lg:block ${
+            className={` h-screen bg-gray-50  hidden lg:block ${
               location.pathname !== "/" ? "w-0/12" : "w-3/12"
             }`}
           >

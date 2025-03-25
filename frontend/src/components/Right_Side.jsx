@@ -1,70 +1,86 @@
 import React, { useEffect, useState } from "react";
-import Myimage from '../../public/rock.jpg'
 import axios from "axios";
 
 export default function Right_Side() {
-
   const [fetching, setFetching] = useState(false);
 
   const [Users, setUsers] = useState();
-  const fetchAllUsers = async()=>{
+  const fetchAllUsers = async () => {
     try {
-      setFetching(true)
+      setFetching(true);
       const response = await axios.get("http://localhost:5000/users");
-     
-      setUsers(response.data.user,"This is user response");
-      setFetching(false)
 
-      
+      setUsers(response.data.user, "This is user response");
+      setFetching(false);
     } catch (error) {
-      console.log("Something went wrong.")
-      setFetching(false)
-
-      
+      console.log("Something went wrong.");
+      setFetching(false);
     }
-
-  }
-  useEffect(()=>{
-    fetchAllUsers()
-  },[])
+  };
+  useEffect(() => {
+    fetchAllUsers();
+  }, []);
 
   return (
     <div className=" px-4 pt-10">
-       
       <div className="flex items-center justify-between font-semibold opacity-70 mb-8 px-2">
         <p>Suggested for you</p>
         <p className="text-blue-500 cursor-pointer ">See All</p>
       </div>
-      {
-        fetching && 
-        <p>Loading...</p>
-        }
 
       <div className="space-y-6 px-2 ">
-        {Users?.map((item, index) => (
-          <div key={index} className="flex items-center justify-between">
-
-            <div className="flex gap-x-2 ">    
-            
-              <img
-                height={1050}
-                className="rounded-full object-cover w-14 h-14 cursor-pointer"
-                width={1050}
-                src={item.profilePicture}
-                alt="Image"
-              />
-
-              <div>
-                <p className="font-semibold text-lg">{item.fullName}</p>
-                <p className="opacity-60">hello</p>
+        {fetching ? (
+          Array(4)
+            .fill()
+            .map((_, index) => (
+              <div key={index} className="flex items-center justify-between gap-x-4">
+                <div className="flex">
+                <div className="h-16 w-16 bg-gray-300 rounded-full animate-pulse border-3 border-orange-700 p-0.5"></div>
+                <div>
+                <div className="space-y-1 bg-gray-100  rounded-sm p-2">
+                <div className="w-36 h-8 rounded-sm animate-pulse bg-gray-300"></div>
+                <div className="w-22 h-3 rounded-sm animate-pulse bg-gray-300"></div>
+                </div>
+                </div>
+                </div>
+                <div className="w-28 rounded-sm h-8 animate-pulse bg-gray-300">
+                  
+                </div>
               </div>
-            </div>
+            ))
+        ) : (
+          <div className="space-y-6 px-2 ">
+            {Users?.map((item, index) => (
+              <div key={index} className="flex items-center justify-between">
+                <div className="flex gap-x-2 ">
+                  <img
+                    height={1050}
+                    className="rounded-full object-cover w-14 h-14 cursor-pointer"
+                    width={1050}
+                    src={item.profilePicture}
+                    alt="Image"
+                  />
 
-            <p className="text-blue-500 font-semibold cursor-pointer">Follow</p>
+                  <div>
+                    <p className="font-semibold text-lg">
+                      {item.fullName
+                        .toLowerCase()
+                        .replace(" ", "")
+                        .slice(0, 10) + "..."}
+                    </p>
+                    <p className="opacity-60">hello</p>
+                  </div>
+                </div>
+
+                <p className="text-blue-500 font-semibold cursor-pointer">
+                  Follow
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
-       
+        )}
       </div>
+      
     </div>
   );
 }

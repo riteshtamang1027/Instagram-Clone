@@ -46,7 +46,7 @@ export default function Middle_Area() {
                   alt="Image"
                 />
                 <p className="text-sm opacity-70 font-semibold">
-                  {item.userFullName.slice(0, 10)}
+                  {item.userFullName.toLowerCase().replace(" ","").slice(0, 10)+"..."}
                 </p>
               </div>
             ))}
