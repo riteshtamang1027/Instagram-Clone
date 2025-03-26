@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router";
 
 export default function Right_Side() {
   const [fetching, setFetching] = useState(false);
@@ -33,25 +34,30 @@ export default function Right_Side() {
           Array(4)
             .fill()
             .map((_, index) => (
-              <div key={index} className="flex items-center justify-between gap-x-4">
+              <div
+                key={index}
+                className="flex items-center justify-between gap-x-4"
+              >
                 <div className="flex">
-                <div className="h-16 w-16 bg-gray-300 rounded-full animate-pulse border-3 border-orange-700 p-0.5"></div>
-                <div>
-                <div className="space-y-1 bg-gray-100  rounded-sm p-2">
-                <div className="w-36 h-8 rounded-sm animate-pulse bg-gray-300"></div>
-                <div className="w-22 h-3 rounded-sm animate-pulse bg-gray-300"></div>
+                  <div className="h-16 w-16 bg-gray-300 rounded-full animate-pulse border-3 border-orange-700 p-0.5"></div>
+                  <div>
+                    <div className="space-y-1 bg-gray-100  rounded-sm p-2">
+                      <div className="w-36 h-8 rounded-sm animate-pulse bg-gray-300"></div>
+                      <div className="w-22 h-3 rounded-sm animate-pulse bg-gray-300"></div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-                </div>
-                <div className="w-28 rounded-sm h-8 animate-pulse bg-gray-300">
-                  
-                </div>
+                <div className="w-28 rounded-sm h-8 animate-pulse bg-gray-300"></div>
               </div>
             ))
         ) : (
           <div className="space-y-6 px-2 ">
             {Users?.map((item, index) => (
-              <div key={index} className="flex items-center justify-between">
+              <NavLink
+                key={index}
+                to={`/profile/${item._id}`}
+                className="flex items-center justify-between"
+              >
                 <div className="flex gap-x-2 ">
                   <img
                     height={1050}
@@ -75,12 +81,11 @@ export default function Right_Side() {
                 <p className="text-blue-500 font-semibold cursor-pointer">
                   Follow
                 </p>
-              </div>
+              </NavLink>
             ))}
           </div>
         )}
       </div>
-      
     </div>
   );
 }

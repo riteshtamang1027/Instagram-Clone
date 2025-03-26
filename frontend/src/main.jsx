@@ -1,4 +1,5 @@
 import { StrictMode, useState } from "react";
+import { Toaster } from 'react-hot-toast';
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -35,9 +36,9 @@ export default function Root() {
   const hidemore = () => setShowmore(false);
 
 
-  const [Create, setCreate] = useState(false);
-  const showcreate = ()=>setCreate(true);
-  const hidden3 = ()=>setCreate(false);
+  // const [Create, setCreate] = useState(false);
+  // const showcreate = ()=>setCreate(true);
+  // const hidden3 = ()=>setCreate(false);
 
   return (
     <StrictMode>
@@ -50,7 +51,7 @@ export default function Root() {
 
       <div className="flex relative h-screen ">
         <div className="sticky w-4/12 lg:w-2/12 hidden border-r border-gray-300 sm:block top-0 h-screen">
-          <Left_Side Show={Show1} show={show2} Showmore={Showmore} showcreate={showcreate} />
+          <Left_Side Show={Show1} show={show2} Showmore={Showmore}  />
         </div>
 
         <div
@@ -62,7 +63,7 @@ export default function Root() {
         >
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:id" element={<Profile />} />
             <Route path="/search" element={<Search_Mobile />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/reels" element={<Reels />} />
@@ -84,13 +85,14 @@ export default function Root() {
           </div>
         )}
       </div>
+      <Toaster />
 
       {Bell === true && <Notification hide={hidden} />}
 
       {search && <Search hidden={hide} />}
       {showMore && <More hidemore={hidemore} />}
 
-      {Create  && <Creat hidden3={hidden3}/>}
+      {/* {Create  && <Creat hidden3={hidden3}/>} */}
 
       <Mobile_Menu />
     </StrictMode>

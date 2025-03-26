@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Plus, Settings } from "lucide-react";
 import Profile_Feed_Section from "./Profile_Feed_Section";
 import { FaThreads } from "react-icons/fa6";
 import Discover_People from "../Mobilepages/Discover_People";
-import image from '../../public/images/tanjiro.jpg'
+import UserRegisterCard from "../components/userRegisterCard";
+import axios from "axios";
+import { useLocation } from "react-router";
 
 export default function Profile() {
+  const [User, setUser] = useState();
+  const location = useLocation();
+  const userId = location.pathname.split("/")[2]
+
+const fetchSingleUserId = async()=>{
+  try {
+    
+    const response = await axios.get(`http://localhost:5000/users/${userId}`);
+    setUser(response.data.user)
+    
+  } catch (error) {
+    console.log(error)
+    console.log("Something went wrong to fetching single user",error)
+    
+  }
+}
+useEffect(()=>{
+  fetchSingleUserId()
+
+},[userId])
+  
   return (
     
       <div className="  mt-12  ml-26 hidden md:block ">
         <div className="  mt-6 flex gap-x-24 items-center ">
           
           <div className=" w-max relative  rounded-full ml-40">
-            <img className="rounded-full w-36 h-36 object-cover " width={1500} height={1500} src={image} alt="" />
+            <img className="rounded-full w-36 h-36 object-cover " width={1500} height={1500} src={User?.profilePicture} alt="" />
 
             <div className="h-10 w-20 bg-white border border-gray-200 shadow-2xl  absolute flex items-center justify-center   -top-8 left-8 rounded-lg">
               <p className=" text-xs  ">Note...</p>
@@ -21,7 +44,7 @@ export default function Profile() {
 
           <div className="space-y-6">
             <div className="flex gap-2">
-              <p className="font-semibold opacity-80 text-lg">Username</p>
+              <p className="font-semibold opacity-80 text-lg">{User?.fullName.toLowerCase().replace(/\s+/g,"")}</p>
             
               <button className="bg-gray-200 font-semibold text-sm opacity-80 px-4 ml-4 py-1 rounded-md hover:bg-gray-300 cursor-pointer duration-300 whitespace-nowrap">
                 Edit profile
@@ -40,9 +63,9 @@ export default function Profile() {
             </div>
 
             <div className="space-y-1">
-              <p className="font-semibold opacity-80">Full Name</p>
+              <p className="font-semibold opacity-80">{User?.fullName}</p>
               <button className="bg-gray-200 text-black flex gap-1 text-xs font-semibold opacity-80 px-2 py-0.5 rounded-full hover:bg-gray-300 cursor-pointer duration-300 whitespace-nowrap">
-              <FaThreads size={18} /> Username
+              <FaThreads size={18} /> {User?.fullName.toLowerCase().replace(/\s+/g,"")}
               </button>
               <p className="font-semibold opacity-75">
                 Lorem, ipsum dolor sit amet consectetur adipisicing.
@@ -66,6 +89,8 @@ export default function Profile() {
           <hr className=" text-gray-300" />
           <Profile_Feed_Section />
         </div>
+
+        <UserRegisterCard/>
       </div>
   );
 }

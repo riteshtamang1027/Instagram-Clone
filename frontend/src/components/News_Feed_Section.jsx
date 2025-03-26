@@ -13,11 +13,11 @@ import { NavLink } from "react-router";
 
 export default function News_Feed_Section() {
   const [Post, setPost] = useState();
-  console.log(Post);
+  // console.log(Post);
   const fetchPost = async () => {
     try {
       const response = await axios.get("http://localhost:5000/posts");
-      console.log(response.data.post)
+      // console.log(response.data.post);
       setPost(response.data.post);
     } catch (error) {
       console.log("Something went wrong ", error);
@@ -26,19 +26,17 @@ export default function News_Feed_Section() {
 
   useEffect(() => {
     fetchPost();
-  },[]);
+  }, []);
 
-
-  const deletePost= async(_id)=>{
+  const deletePost = async (_id) => {
     try {
       const response = await axios.delete(`http://localhost:5000/posts/${_id}`);
       fetchPost();
     } catch (error) {
-      console.log("Something went wrong")
-      
+      console.log("Something went wrong");
     }
-  }
-  
+  };
+
   return (
     <div className="mt-8 lg:px-20  space-y-4">
       {/* Single Post */}
@@ -48,10 +46,10 @@ export default function News_Feed_Section() {
           <div className="flex items-center  justify-between">
             <div className="flex items-center gap-2 mb-4">
               <img
-              className="rounded-full object-cover cursor-pointer  h-12 w-12 "
-              src={eachpost.profilePicture}
-              alt="Image"
-            />
+                className="rounded-full object-cover cursor-pointer  h-12 w-12 "
+                src={eachpost.profilePicture}
+                alt="Image"
+              />
               {/* <div className="h-12 w-12 bg-gray-300 rounded-full"></div> */}
               <p className="font-bold">
                 {eachpost.userName}
@@ -61,16 +59,29 @@ export default function News_Feed_Section() {
               </p>
             </div>
 
+            <div className="flex items-center  gap-x-2">
+              <NavLink to={`/view_post/${eachpost._id}`}>
+                {" "}
+                <Eye
+                  size={20}
+                  strokeWidth={2}
+                  className="opacity-70 cursor-pointer"
+                />
+              </NavLink>
 
-           <NavLink to={`/view_post/${eachpost._id}`}> <Eye/></NavLink>
+              <Trash
+                onClick={() => deletePost(eachpost._id)}
+                size={20}
+                strokeWidth={2}
+                className="opacity-70 cursor-pointer"
+              />
 
-            <Trash onClick={()=>deletePost(eachpost._id)}/>
-
-            <MoreHorizontal
-              size={26}
-              strokeWidth={2}
-              className="opacity-70 cursor-pointer"
-            />
+              <MoreHorizontal
+                size={26}
+                strokeWidth={2}
+                className="opacity-70 cursor-pointer"
+              />
+            </div>
           </div>
           <div className="space-y-3 ">
             <img

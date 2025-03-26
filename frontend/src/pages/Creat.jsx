@@ -1,11 +1,16 @@
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
 import React from "react";
-import { FaPhotoFilm } from "react-icons/fa6";
+// import { FaPhotoFilm } from "react-icons/fa6";
+import PostCreateCard from "../components/postCreateCard";
+import StoryCreateCard from "../components/storyCreateCard";
 
 export default function Creat({hidden3}) {
   return (
    <div>
-    <div  className="bg-black opacity-50 w-full h-screen fixed inset-0">
+
+    <PostCreateCard/>
+    <StoryCreateCard/>
+    {/* <div  className="bg-black opacity-50 w-full h-screen fixed inset-0">
       
     </div>
     <X onClick={hidden3} size={28} className=" absolute top-2 right-2 cursor-pointer text-white"/>
@@ -22,7 +27,7 @@ export default function Creat({hidden3}) {
           </button>
         </div>
       </div>
-    </div>
+    </div> */}
    </div>
   );
 }
