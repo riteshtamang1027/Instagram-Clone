@@ -27,7 +27,7 @@ export const creatPost = async (req, res) => {
 };
 export const getAllPost = async (req, res) => {
   try {
-    const Postes = await Post.find();
+    const Postes = await Post.find().sort({createdAt:-1});
     return res.status(200).json({
       message: "All stories fetch successfully",
       post: Postes,
