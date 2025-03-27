@@ -28,6 +28,7 @@ export default function StoryCreateCard() {
       );
       toast.success("Successfully story created!");
       setIsCreateing(false);
+      setUserFullName("");
     } catch (error) {
       console.log("Something went wrong");
       setIsCreateing(false)

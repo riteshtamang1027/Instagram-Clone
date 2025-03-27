@@ -33,9 +33,12 @@ export default function UserRegisterCard() {
         "https://insta-server-l8g7.onrender.com/users/register",
         formdata
       );
-      console.log(response);
       setIsCreateing(false)
-  toast.success('Successfully Created!')
+  toast.success('Successfully Created!');
+  setEmail("");
+  setFullName("");
+  setPassword("");
+  setProfilePicture(null);
 
     } catch (error) {
       console.log(error);
