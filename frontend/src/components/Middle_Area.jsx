@@ -17,7 +17,7 @@ const [CurrentImage, setCurrentImage] = useState(null);
   const fetchAllStories = async () => {
     try {
       setIsFetching(true);
-      const response = await axios.get("http://localhost:5000/stories");
+      const response = await axios.get("https://insta-server-l8g7.onrender.com/stories");
       setStories(response.data.story);
       setIsFetching(false);
     } catch (error) {

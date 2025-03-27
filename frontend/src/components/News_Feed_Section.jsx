@@ -16,7 +16,7 @@ export default function News_Feed_Section() {
   // console.log(Post);
   const fetchPost = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/posts");
+      const response = await axios.get("https://insta-server-l8g7.onrender.com/posts");
       // console.log(response.data.post);
       setPost(response.data.post);
     } catch (error) {
@@ -30,7 +30,7 @@ export default function News_Feed_Section() {
 
   const deletePost = async (_id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/posts/${_id}`);
+      const response = await axios.delete(`https://insta-server-l8g7.onrender.com/posts/${_id}`);
       fetchPost();
     } catch (error) {
       console.log("Something went wrong");

@@ -10,7 +10,7 @@ export default function Messenger_LeftSide() {
   const fetchAllUsers = async () => {
     try {
       setFetching(true);
-      const response = await axios.get("http://localhost:5000/users");
+      const response = await axios.get("https://insta-server-l8g7.onrender.com/users");
 
       setUsers(response.data.user);
       setFetching(false);
