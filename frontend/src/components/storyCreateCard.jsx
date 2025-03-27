@@ -1,6 +1,7 @@
 import axios from "axios";
 import { LoaderCircle } from "lucide-react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function StoryCreateCard() {
   const [storyPicture, setstoryPicture] = useState(null);
@@ -22,20 +23,19 @@ export default function StoryCreateCard() {
 
 
       const response = await axios.post(
-        "http://localhost:5000/stories",
+        "https://insta-server-l8g7.onrender.com/stories",
         formdata
       );
-      console.log(response);
-      setIsCreateing(false)
+      toast.success("Successfully story created!");
+      setIsCreateing(false);
     } catch (error) {
-      console.log(error);
       console.log("Something went wrong");
       setIsCreateing(false)
     }
   };
 
   return (
-    <form
+    <form 
       onSubmit={handleSubmit}
       className="border border-gray-300 rounded-md p-4 space-y-6"
     >
@@ -44,7 +44,7 @@ export default function StoryCreateCard() {
       </h1>
       <div className="flex flex-col gap-2">
         <label className="text-lg font-semibold opacity-70">Create Story</label>
-        <input
+        <input required
           type="file" 
           onChange={(e) => setstoryPicture(e.target.files[0])}
           placeholder=" Write a caption..."
@@ -54,7 +54,7 @@ export default function StoryCreateCard() {
       
       <div className="flex flex-col gap-2">
         <label className="text-lg font-semibold opacity-70">User Full Name</label>
-        <input value={userFullName}
+        <input required value={userFullName}
           onChange={(e) => setUserFullName(e.target.value)}
           type="text"
           placeholder="Enter user full name"
@@ -62,11 +62,11 @@ export default function StoryCreateCard() {
         />
       </div>
       
-      <button
+      <button disabled={isCreateing}
         type="submit"
-        className="bg-blue-500 px-4 py-2 rounded-md flex  text-white cursor-pointer"
-      >  { isCreateing ?<LoaderCircle className="animate-spin" /> :
-        <p>Create Post</p>}
+        className="bg-blue-500 px-4 py-2 rounded-md flex items-center gap-x-2 text-white cursor-pointer"
+      >  { isCreateing && <LoaderCircle size={20} className="animate-spin" /> }
+        <p>Create Story</p>
       </button>
     </form>
   );

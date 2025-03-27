@@ -1,7 +1,11 @@
 import axios from "axios";
+import { LoaderCircle } from "lucide-react";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function PostCreateCard() {
+const [IsLoading, setIsLoading] = useState(false);
+
   const [caption, setCaption] = useState("");
   const [name, setName] = useState("");
 
@@ -12,6 +16,7 @@ export default function PostCreateCard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true)
       const formdata = new FormData();
       formdata.append("postPicture", image);
       formdata.append("profilePicture", image2);
@@ -21,13 +26,16 @@ export default function PostCreateCard() {
 
 
       const response = await axios.post(
-        "http://localhost:5000/posts",
+        "https://insta-server-l8g7.onrender.com/posts",
         formdata
       );
-      console.log(response);
+      toast.success(" Successfully Post Created!")
+      setIsLoading(false)
+      setCaption("");
+      setName("");
     } catch (error) {
-      console.log(error);
       console.log("Something went wrong");
+      setIsLoading(false)
     }
   };
 
@@ -51,7 +59,7 @@ export default function PostCreateCard() {
       </div>
       <div className="flex flex-col gap-2">
         <label className="text-lg font-semibold opacity-70">Post Picture</label>
-        <input
+        <input required
           onChange={(e) => setImage(e.target.files[0])}
           type="file"
           className="border opacity-60 border-gray-300 outline-none rounded-sm px-6 py-2"
@@ -59,7 +67,7 @@ export default function PostCreateCard() {
       </div>
       <div className="flex flex-col gap-2">
         <label className="text-lg font-semibold opacity-70">User ProfilePicture</label>
-        <input
+        <input required
           onChange={(e) => setImage2(e.target.files[0])}
           type="file"
           className="border opacity-60 border-gray-300 outline-none rounded-sm px-6 py-2"
@@ -67,16 +75,17 @@ export default function PostCreateCard() {
       </div>
       <div className="flex flex-col gap-2">
         <label className="text-lg font-semibold opacity-70">User Name</label>
-        <textarea value={name}
+        <input required value={name}
           onChange={(e) => setName(e.target.value)}
           type="text" placeholder="Enter your name"
           className="border opacity-60 border-gray-300 outline-none rounded-sm px-6 py-2"
         />
       </div>
-      <button
+      <button disabled={IsLoading}
         type="submit"
-        className="bg-blue-500 px-4 py-2 rounded-md text-white cursor-pointer"
+        className="bg-blue-500 px-4 flex items-center gap-x-2 py-2 rounded-md text-white cursor-pointer"
       >
+      { IsLoading && <LoaderCircle size={20} className="animate-spin"/>}
         Create Post
       </button>
     </form>

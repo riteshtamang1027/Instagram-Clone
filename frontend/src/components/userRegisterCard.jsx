@@ -30,12 +30,12 @@ export default function UserRegisterCard() {
 
 
       const response = await axios.post(
-        "http://localhost:5000/users/register",
+        "https://insta-server-l8g7.onrender.com/users/register",
         formdata
       );
       console.log(response);
       setIsCreateing(false)
-  toast.success('Successfully toasted!')
+  toast.success('Successfully Created!')
 
     } catch (error) {
       console.log(error);
@@ -90,11 +90,11 @@ export default function UserRegisterCard() {
         />
       </div>
       
-      <button
+      <button disabled={isCreateing}
         type="submit"
-        className="bg-blue-500 px-4 py-2 rounded-md flex  text-white cursor-pointer"
-      >  { isCreateing ?<LoaderCircle className="animate-spin" /> :
-        <p>Create user account</p>}
+        className="bg-blue-500 px-4 py-2 rounded-md flex items-center gap-x-2  text-white cursor-pointer"
+      >  { isCreateing && <LoaderCircle size={20} className="animate-spin" />}
+        <p>Create user account</p>
       </button>
      
     </form>

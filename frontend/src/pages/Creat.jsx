@@ -6,7 +6,7 @@ import StoryCreateCard from "../components/storyCreateCard";
 
 export default function Creat({hidden3}) {
   return (
-   <div>
+   <div className="mt-12 space-y-8 px-8">
 
     <PostCreateCard/>
     <StoryCreateCard/>
