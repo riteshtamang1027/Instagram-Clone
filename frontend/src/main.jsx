@@ -64,6 +64,8 @@ export default function Root() {
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
+
             <Route path="/search" element={<Search_Mobile />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/reels" element={<Reels />} />

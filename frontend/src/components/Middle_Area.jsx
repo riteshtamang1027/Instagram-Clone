@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import News_Feed_Section from "./News_Feed_Section";
 import axios from "axios";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 export default function Middle_Area() {
+
+const [CurrentImage, setCurrentImage] = useState(null);
+
+
+
   const [IsFetching, setIsFetching] = useState(false);
 
   const [Stories, setStories] = useState(null);
@@ -26,6 +33,8 @@ export default function Middle_Area() {
 
   return (
     <div className="px-4 sm:mx-12  max-sm:mt-14  md:pt-4 ">
+
+
       <div className="flex mt-4 gap-x-4 hover:overflow-x-scroll space-y-2">
         {IsFetching ? (
           Array(5)
@@ -39,16 +48,21 @@ export default function Middle_Area() {
         ) : (
           <div className="flex mt-4 gap-x-4 space-y-2">
             {Stories?.map((item, index) => (
-              <div key={index} className=" flex flex-col items-center gap-1   ">
-                <img
-                  className="rounded-full object-cover h-16 w-16 border-3 border-orange-700 p-0.5 cursor-pointer"
-                  src={item.storyPicture}
-                  alt="Image"
-                />
-                <p className="text-sm opacity-70 font-semibold">
-                  {item.userFullName.toLowerCase().replace(" ","").slice(0, 10)+"..."}
-                </p>
-              </div>
+               <Popup contentStyle={{border:"1px solid red"}} onOpen={()=>setCurrentImage(item.storyPicture)}  key={index} modal trigger={  <div className=" flex flex-col items-center gap-1   ">
+               <img
+                 className="rounded-full object-cover h-16 w-16 border-3 border-orange-700 p-0.5 cursor-pointer"
+                 src={item.storyPicture}
+                 alt="Image"
+               />
+
+
+               <p className="text-sm opacity-70 font-semibold">
+                 {item.userFullName.toLowerCase().replace(" ","").slice(0, 10)+"..."}
+               </p>
+             </div>} position="right center">
+               <img width={500} height={500} src={CurrentImage} alt="" />
+             </Popup>
+            
             ))}
           </div>
         )}
