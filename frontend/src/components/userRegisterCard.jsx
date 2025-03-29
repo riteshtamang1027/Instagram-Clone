@@ -53,7 +53,7 @@ export default function UserRegisterCard() {
       className="border border-gray-300 rounded-md p-4 space-y-6"
     >
       <h1 className="text-2xl font-bold text-center opacity-90">
-        Create New Post
+        Create New Account
       </h1>
       <div className="flex flex-col gap-2">
         <label className="text-lg font-semibold opacity-70">Select your profile picture</label>

@@ -10,8 +10,11 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 export default function News_Feed_Section() {
+  
   const [Post, setPost] = useState();
   // console.log(Post);
   const fetchPost = async () => {
@@ -45,14 +48,19 @@ export default function News_Feed_Section() {
         <div key={index} className=" space-y-4  ">
           <div className="flex items-center  justify-between">
             <div className="flex items-center gap-2 mb-4">
-              <img
-                className="rounded-full object-cover cursor-pointer  h-12 w-12 "
-                src={eachpost.profilePicture}
-                alt="Image"
-              />
-              {/* <div className="h-12 w-12 bg-gray-300 rounded-full"></div> */}
+            <Popup Tooltip   trigger={open =>( 
+
+      <NavLink to={`/profile/${eachpost._id}`}>  <img
+      className="rounded-full object-cover cursor-pointer  h-12 w-12 "
+      src={eachpost.profilePicture}
+      alt="Image"
+    /> - {open ? 'Opened' : 'Closed'} </NavLink>  
+     )} position="bottom center" closeOnDocumentClick>
+    <div>Popup content here !!</div>
+ 
+  </Popup>
               <p className="font-bold">
-                {eachpost.userName}
+               <NavLink to={`/profile/${eachpost._id}`} className="cursor-pointer"> {eachpost.userName}</NavLink>
                 <span className="text-xs mx-2 opacity-70 font-semibold">
                   {eachpost.createdAt}
                 </span>

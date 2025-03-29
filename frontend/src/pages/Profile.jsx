@@ -6,6 +6,8 @@ import Discover_People from "../Mobilepages/Discover_People";
 import UserRegisterCard from "../components/userRegisterCard";
 import axios from "axios";
 import { useLocation } from "react-router";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 export default function Profile() {
   const [User, setUser] = useState();
@@ -14,7 +16,9 @@ export default function Profile() {
 
   const fetchSingleUserId = async () => {
     try {
-      const response = await axios.get(`https://insta-server-l8g7.onrender.com/users/${userId}`);
+      const response = await axios.get(
+        `https://insta-server-l8g7.onrender.com/users/${userId}`
+      );
       setUser(response.data.user);
     } catch (error) {
       console.log(error);
@@ -54,8 +58,27 @@ export default function Profile() {
             <button className="bg-gray-200 text-sm font-semibold opacity-80 px-4 py-1 rounded-md hover:bg-gray-300 cursor-pointer duration-300 whitespace-nowrap">
               View archive
             </button>
-
-            <Settings size={30} className="opacity-70" />
+            <Popup
+              contentStyle={{
+                width: "26vw",
+                borderRadius: "16px",
+                overflow: "hidden",
+              }}
+              modal
+              trigger={
+                <Settings size={30} className="opacity-70 cursor-pointer" />
+              }
+            >
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className="cursor-pointer  text-center border-gray-300 space-y-1.5 -mx-1 "
+                >
+                  <p className=" opacity-90 py-2.5 ">{item.p}</p>
+                  {item.h}
+                </div>
+              ))}
+            </Popup>
           </div>
 
           <div className="flex gap-12 font-bold opacity-70">
@@ -97,3 +120,15 @@ export default function Profile() {
     </div>
   );
 }
+
+const items = [
+  { p: "Apps and websites", h: <hr className="text-gray-300" /> },
+  { p: "QR code", h: <hr className="text-gray-300" /> },
+  { p: "Notifications", h: <hr className="text-gray-300" /> },
+  { p: "Settings and privacy", h: <hr className="text-gray-300" /> },
+  { p: "Meta Verified", h: <hr className="text-gray-300" /> },
+  { p: "Supervision", h: <hr className="text-gray-300" /> },
+  { p: "Login activity", h: <hr className="text-gray-300" /> },
+  { p: "Logout", h: <hr className="text-gray-300" /> },
+  { p: "Cancel" },
+];
