@@ -24,7 +24,11 @@ export default function StoryCreateCard() {
 
       const response = await axios.post(
       ` ${import.meta.env.VITE_SERVER_URL}/stories`,
-        formdata
+        formdata,{
+          headers:{
+            authorization:`bearer ${localStorage.getItem("my-token")}`
+          }
+        }
       );
       toast.success("Successfully story created!");
       setIsCreateing(false);

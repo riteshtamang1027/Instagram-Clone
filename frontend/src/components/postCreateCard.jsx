@@ -27,7 +27,12 @@ const [IsLoading, setIsLoading] = useState(false);
 
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_URL}/posts`,
-        formdata
+        formdata,{
+          headers:{
+            authorization:`bearer ${localStorage.getItem("my-token")}`
+          }
+         
+        }
       );
       toast.success(" Successfully Post Created!")
       setIsLoading(false)

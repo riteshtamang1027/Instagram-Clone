@@ -10,7 +10,12 @@ export default function Right_Side() {
     try {
       setFetching(true);
       const response = await axios.get(
-       ` ${import.meta.env.VITE_SERVER_URL}/users`
+       ` ${import.meta.env.VITE_SERVER_URL}/users`,{
+        headers:{
+          authorization:`bearer ${localStorage.getItem("my-token")}`
+        }
+       
+      }
       );
 
       setUsers(response.data.user, "This is user response");
