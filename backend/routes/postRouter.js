@@ -2,6 +2,7 @@ import express from 'express';
 import { creatPost, deletePostById, getAllPost, getPostById, updatePostById } from '../controllers/postController.js';
 const router= express.Router();
 import multer from 'multer';
+import { verifyToken } from '../middlewares/verifyToken.js';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     
@@ -19,10 +20,10 @@ const upload = multer({ storage: storage }).fields([
 ]);
 
 
-router.post("/",upload,creatPost);
-router.get("/",getAllPost);
+router.post("/",verifyToken,upload,creatPost);
+router.get("/",verifyToken,getAllPost);
 router.get("/:id",getPostById);
 router.patch("/:id",updatePostById);
-router.delete("/:id",deletePostById);
+router.delete("/:id",verifyToken,deletePostById);  
 
 export default router;

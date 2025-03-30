@@ -10,7 +10,7 @@ export const verifyToken = (req , res , next)=>{
     }
 
     const pureToken = token.split(" ")[1]
-    console.log(pureToken);
+    // console.log(pureToken);
 
     // verify a token symmetric
 jwt.verify(

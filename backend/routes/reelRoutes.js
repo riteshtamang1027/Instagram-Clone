@@ -7,6 +7,7 @@ import {
 } from "../controllers/rellController.js";
 const router = express.Router();
 import multer from 'multer';
+import { verifyToken } from "../middlewares/verifyToken.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -24,9 +25,9 @@ const upload = multer({ storage: storage }).fields([
   { name: "profilePicture", maxCount: 1 }, 
 ]);
 
-router.post("/",upload,creatReel);
-router.get("/", getAllRell);
-router.get("/:id", getRellById);
-router.delete("/:id", deleteRellById);
+router.post("/",verifyToken,upload,creatReel);
+router.get("/",verifyToken, getAllRell);
+router.get("/:id",verifyToken, getRellById);
+router.delete("/:id",verifyToken, deleteRellById); 
 
 export default router;

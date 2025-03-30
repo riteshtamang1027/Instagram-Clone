@@ -10,7 +10,7 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 const upload = multer({ dest: "uploads/" });
 
 const router = express.Router();
-router.post("/", upload.single("storyPicture"), creatStory);
+router.post("/",verifyToken, upload.single("storyPicture"), creatStory);
 router.get("/",verifyToken, getAllStory);
 router.get("/:id", getStoryById);
 router.delete("/:id", deleteStoryById);
