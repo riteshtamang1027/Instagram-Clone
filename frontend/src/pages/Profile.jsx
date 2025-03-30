@@ -8,6 +8,7 @@ import axios from "axios";
 import { useLocation } from "react-router";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import LoginCard from "../components/loginCard";
 
 export default function Profile() {
   const [User, setUser] = useState();
@@ -17,7 +18,7 @@ export default function Profile() {
   const fetchSingleUserId = async () => {
     try {
       const response = await axios.get(
-        `https://insta-server-l8g7.onrender.com/users/${userId}`
+        `${import.meta.env.VITE_SERVER_URL}/users/${userId}`
       );
       setUser(response.data.user);
     } catch (error) {
@@ -117,6 +118,7 @@ export default function Profile() {
       </div>
 
       <UserRegisterCard />
+      <LoginCard/>
     </div>
   );
 }

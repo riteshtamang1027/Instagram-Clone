@@ -16,7 +16,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://instagram-mocha-three.vercel.app"
+      `https://instagram-mocha-three.vercel.app`
     ],
   })
 );

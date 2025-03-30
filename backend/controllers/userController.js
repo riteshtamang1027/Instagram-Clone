@@ -72,12 +72,12 @@ export const LoginUser = async (req, res) => {
 
     // 3. generate jwt token if password is match
     const userToken = jwt.sign(
-      { email: userExist.email, id: userExist._id },
+      { email: userExist.email, password:userExist.password },
       process.env.JWT_SECRET,
       { expiresIn:"1h" }
     );
     return res.status(200).json({
-      message: "user login successfull.",
+      message: "login successfull.",
       token: userToken,
     });
   } catch (error) {

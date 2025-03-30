@@ -10,7 +10,7 @@ export default function Right_Side() {
     try {
       setFetching(true);
       const response = await axios.get(
-        "https://insta-server-l8g7.onrender.com/users"
+       ` ${import.meta.env.VITE_SERVER_URL}/users`
       );
 
       setUsers(response.data.user, "This is user response");
@@ -28,14 +28,14 @@ export default function Right_Side() {
     <div className=" px-4 pt-10 space-y-4">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-x-2">
-         <NavLink to={"/profile"} > <img
+          <img
             className="w-14 h-14 rounded-full object-cover cursor-pointer "
             src="https://images.unsplash.com/photo-1742943679519-bb9eb364b152?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D"
             alt="Image"
-          /></NavLink>
+          />
           <p className="flex flex-col">
             {" "}
-            <NavLink to={"/profile"}><span className="font-semibold cursor-pointer">riteshlama1027</span></NavLink>
+           <span className="font-semibold cursor-pointer">riteshlama1027</span>
             <span className="opacity-70">Ritesh lama</span>
           </p>
         </div>

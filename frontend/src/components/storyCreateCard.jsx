@@ -23,7 +23,7 @@ export default function StoryCreateCard() {
 
 
       const response = await axios.post(
-        "https://insta-server-l8g7.onrender.com/stories",
+      ` ${import.meta.env.VITE_SERVER_URL}/stories`,
         formdata
       );
       toast.success("Successfully story created!");

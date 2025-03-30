@@ -26,7 +26,7 @@ const [IsLoading, setIsLoading] = useState(false);
 
 
       const response = await axios.post(
-        "https://insta-server-l8g7.onrender.com/posts",
+        `${import.meta.env.VITE_SERVER_URL}/posts`,
         formdata
       );
       toast.success(" Successfully Post Created!")

@@ -6,11 +6,12 @@ import {
   getStoryById,
 } from "../controllers/storyController.js";
 import multer from "multer";
+import { verifyToken } from "../middlewares/verifyToken.js";
 const upload = multer({ dest: "uploads/" });
 
 const router = express.Router();
 router.post("/", upload.single("storyPicture"), creatStory);
-router.get("/", getAllStory);
+router.get("/",verifyToken, getAllStory);
 router.get("/:id", getStoryById);
 router.delete("/:id", deleteStoryById);
 

@@ -30,7 +30,7 @@ export default function UserRegisterCard() {
 
 
       const response = await axios.post(
-        "https://insta-server-l8g7.onrender.com/users/register",
+       ` ${import.meta.env.VITE_SERVER_URL}/users/register`,
         formdata
       );
       setIsCreateing(false)

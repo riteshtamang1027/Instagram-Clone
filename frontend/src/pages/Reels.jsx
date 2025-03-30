@@ -7,7 +7,7 @@ export default function Reels() {
 
   const fetchAllReels = async()=>{
     try {
-      const response =await axios.get("http://localhost:5000/Reels");
+      const response =await axios.get(`${import.meta.env.VITE_SERVER_URL}/Reels`);
       setReels(response.data.Reel)
       console.log(response.data.Reel)
 

@@ -12,7 +12,7 @@ export default function ViewPost() {
   const fetchSinglePost = async () => {
     try {
       setIsSinglePosted(true);
-      const response = await axios.get(`https://insta-server-l8g7.onrender.com/posts/${postId}`);
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/posts/${postId}`);
       setPost(response.data.post);
       setIsSinglePosted(false);
     } catch (error) {
