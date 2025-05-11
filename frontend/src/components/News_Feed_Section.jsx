@@ -11,30 +11,34 @@ import {
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 
-
 export default function News_Feed_Section() {
-  
-  const [post, setPost] = useState();
+  const [Post, setPost] = useState();
 
-  const fetchPost = async () => {
+  const fetchAllPosts = async () => {
     try {
-      const response = await axios.get(`${import.meta.VITE_SERVER_URL}/posts`);
-      console.log(response.data.post);
-      setPost(response.data.post);
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/posts`, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("my-token")}`,
+        },
+      });
+      console.log(response.data);
+      setPost(response.data.data);
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       console.log("Something went wrong ", error);
     }
   };
 
   useEffect(() => {
-    fetchPost();
+    fetchAllPosts();
   }, []);
 
   const deletePost = async (_id) => {
     try {
-      const response = await axios.delete(`${import.meta.env.VITE_SERVER_URL}/posts/${_id}`);
-      fetchPost();
+      const response = await axios.delete(
+        `${import.meta.env.VITE_SERVER_URL}/posts/${_id}`
+      );
+      fetchAllPosts();
     } catch (error) {
       console.log("Something went wrong");
     }
@@ -44,20 +48,17 @@ export default function News_Feed_Section() {
     <div className="mt-8 lg:px-20  space-y-4">
       {/* Single Post */}
 
-      {post?.map((eachpost, index) => (
+      {Post?.map((eachpost, index) => (
         <div key={index} className=" space-y-4  ">
           <div className="flex items-center  justify-between">
-            <div className="flex items-center gap-2 mb-4">
            
-     
-       <img
-      className="rounded-full object-cover cursor-pointer  h-12 w-12 "
-      src={eachpost.profilePicture}
-      alt="Image"
-    />  
-   
-     
- 
+            <div className="flex items-center gap-2 mb-4">
+              <img
+                className="rounded-full object-cover cursor-pointer  h-12 w-12 "
+                src={eachpost.profilePicture}
+                alt="Image"
+              />
+
               <p className="font-bold">
                 {eachpost.userName}
 
@@ -91,13 +92,13 @@ export default function News_Feed_Section() {
               />
             </div>
           </div>
-          <div className="space-y-3 ">
+          <div className="space-y-3 border border-gray-100 rounded-xl  ">
             <img
-              className=" rounded-sm object-cover  h-[70vh] sm:h-[90vh] w-full cursor-pointer"
+              className=" rounded-sm object-cover h-88 sm:h-[90vh] w-full cursor-pointer"
               src={eachpost.postPicture}
               alt=""
             />
-            <div className="flex items-center justify-between opacity-80">
+            <div className="flex items-center justify-between opacity-80 px-4">
               <div className="flex gap-4 ">
                 <Heart className="cursor-pointer" size={26} />
                 <MessageCircle className="cursor-pointer" size={26} />
@@ -106,7 +107,7 @@ export default function News_Feed_Section() {
               <Bookmark className="cursor-pointer" size={26} />
             </div>
 
-            <p>{eachpost.caption}</p>
+            <p className="px-4">{eachpost.caption}</p>
           </div>
 
           <hr className="text-gray-300 mt-8" />
@@ -115,4 +116,3 @@ export default function News_Feed_Section() {
     </div>
   );
 }
-

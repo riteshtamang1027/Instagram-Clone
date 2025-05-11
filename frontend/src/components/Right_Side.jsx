@@ -10,12 +10,12 @@ export default function Right_Side() {
     try {
       setFetching(true);
       const response = await axios.get(
-       ` ${import.meta.env.VITE_SERVER_URL}/users`,{
-        headers:{
-          authorization:`bearer ${localStorage.getItem("my-token")}`
+        ` ${import.meta.env.VITE_SERVER_URL}/users`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("my-token")}`,
+          },
         }
-       
-      }
       );
 
       setUsers(response.data.user, "This is user response");
@@ -40,11 +40,13 @@ export default function Right_Side() {
           />
           <p className="flex flex-col">
             {" "}
-           <span className="font-semibold cursor-pointer">riteshlama1027</span>
+            <span className="font-semibold cursor-pointer">riteshlama1027</span>
             <span className="opacity-70">Ritesh lama</span>
           </p>
         </div>
-        <p className="text-sky-700 cursor-pointer hover:text-black text-sm font-semibold opacity-70">Switch</p>
+        <p className="text-sky-700 cursor-pointer hover:text-black text-sm font-semibold opacity-70">
+          Switch
+        </p>
       </div>
       <div className="flex items-center justify-between font-semibold opacity-70 mb-8 px-2">
         <p>Suggested for you</p>
@@ -96,7 +98,7 @@ export default function Right_Side() {
                         .replace(" ", "")
                         .slice(0, 10) + "..."}
                     </p>
-                    <p className="opacity-60">hello</p>
+                    <p className="opacity-60">Follow</p>
                   </div>
                 </div>
 
@@ -111,39 +113,3 @@ export default function Right_Side() {
     </div>
   );
 }
-
-//   {
-//     Profile: Myimage,
-//     Username: "Ritesh",
-//     Followedby: "Tamang",
-//   },
-
-//   {
-//     Profile:
-//       "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?q=80&w=1985&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-//     Username: "Aakhe",
-//     Followedby: "Tamang",
-//   },
-
-//   {
-//     Profile:
-//       "https://images.unsplash.com/photo-1457449940276-e8deed18bfff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
-//     Username: "Mam",
-//     Followedby: "Tamang",
-//   },
-
-//   {
-//     Profile:
-//       "https://plus.unsplash.com/premium_photo-1667667720425-6972aff75f6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
-//     Username: "Aasang",
-//     Followedby: "Tamang",
-//   },
-
-//   {
-//     Profile:
-//       "https://media.istockphoto.com/id/2060433249/photo/photo-of-young-girl-wearing-t-shirt-isolated-yellow-background-stock-photo.webp?a=1&b=1&s=612x612&w=0&k=20&c=hk99PC5UEh5LemwxdHqRKrFCVEu2eKuL4W9t0n74mfU=",
-//     Username: "Aani",
-//     Followedby: "Tamang",
-//   },
-
-// ];

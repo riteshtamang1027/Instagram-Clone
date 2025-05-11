@@ -23,7 +23,6 @@ const [CurrentImage, setCurrentImage] = useState(null);
         }
        
       });
-      console.log(response)
       setStories(response.data.story);
       setIsFetching(false);
     } catch (error) {

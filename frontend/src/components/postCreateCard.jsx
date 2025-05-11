@@ -1,6 +1,6 @@
 import axios from "axios";
 import { LoaderCircle } from "lucide-react";
-import React, { useState } from "react";
+import  { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function PostCreateCard() {
@@ -9,8 +9,8 @@ const [IsLoading, setIsLoading] = useState(false);
   const [caption, setCaption] = useState("");
   const [name, setName] = useState("");
 
-  const [image, setImage] = useState(null);
-  const [image2, setImage2] = useState(null);
+  const [image, setImage] = useState();
+  const [image2, setImage2] = useState();
 
 
   const handleSubmit = async (e) => {

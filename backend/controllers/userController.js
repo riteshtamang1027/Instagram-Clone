@@ -164,6 +164,7 @@ export const getAllUsers = async (req, res) => {
       countDocuments: userCount,
     });
   } catch (error) {
+    console.log(error)
     return res.status(500).json({
       message: ("Internal Server Error.", error),
       code: 500,
